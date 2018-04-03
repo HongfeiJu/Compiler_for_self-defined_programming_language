@@ -30,11 +30,13 @@ public class Parser {
 	
 	public static void statementList() {
 		statement();
-		System.out.println(token.tokenType);
-		if (token.tokenType.equals("VAR")||token.tokenType.equals("IDENTIFIER")||token.tokenType.equals("IF")
+		System.out.println("debug:"+token);
+		if (token==null) System.exit(0);
+		else if (token.tokenType.equals("VAR")||token.tokenType.equals("IDENTIFIER")||token.tokenType.equals("IF")
 		  ||token.tokenType.equals("WHILE")||token.tokenType.equals("PRINT")) {
 			statementList();
 		}
+		
 	}
 	
 	public static void statement() {
@@ -42,7 +44,7 @@ public class Parser {
 		else if (token.tokenType.equals("IDENTIFIER")) assignment();
 		else if (token.tokenType.equals("IF")) ifStatement();
 		else if (token.tokenType.equals("WHILE")) whileStatement();
-		else if (token.tokenType.equals("PRINT")) printFunc();
+		else if (token.tokenType.equals("PRINT")) printFunc();		
 	}
 	
 	public static void declaration() {
@@ -89,6 +91,7 @@ public class Parser {
 	public static void printFunc() {
 		match("PRINT");
 		lowExpression();
+		match("SEMICOLON");
 	}
 	
 	public static void booleanExpression() {
@@ -158,7 +161,7 @@ public class Parser {
 	}
 	
 	public static void match(String tokenType) {	
-		if (token==null) throw new RuntimeException(tokenType+" expected");
+		if (token==null) throw new RuntimeException("No tokens");
 		String type=token.tokenType;
 		if (type.equals(tokenType)) {
 			getToken();System.out.println(type+" match");
