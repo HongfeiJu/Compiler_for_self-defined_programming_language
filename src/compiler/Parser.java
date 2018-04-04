@@ -59,7 +59,7 @@ public class Parser {
 		tree.add("dcl");
 		tree.add("(");
 		match("VAR");		
-		identifier();
+		tree.add(identifier());
 		match("SEMICOLON");
 		tree.add(")");
 	}
@@ -67,9 +67,11 @@ public class Parser {
 	public static void assignment() {
 		tree.add("asgm");
 		tree.add("(");
-		identifier();
-		match("ASSIGNMENT");		
-		lowExpression();
+		tree.add(identifier());
+		match("ASSIGNMENT");
+		for(String x:lowExpression()) {
+			tree.add(x);
+		};
 		match("SEMICOLON");
 		tree.add(")");
 	}
@@ -111,7 +113,7 @@ public class Parser {
 		tree.add("print");
 		tree.add("(");
 		match("PRINT");
-		lowExpression();
+		tree.add(identifier());
 		match("SEMICOLON");
 		tree.add(")");
 	}
@@ -124,72 +126,133 @@ public class Parser {
 			tree.add("false");
 			match("FALSE");
 		}else {
-			lowExpression();
+			Queue<String> templow1=lowExpression();
 			switch(token.tokenType) {
-			case "EQUAL":match("EQUAL");break;
-			case "NOLARGERTHAN":match("NOLARGERTHAN");break;
-			case "NOLESSTHAN":match("NOLESSTHAN");break;
-			case "NOTEQUAL":match("NOTEQUAL");break;
-			case "ASSIGNMENT":match("ASSIGNMENT");break;
-			case "TRUE":match("TRUE");break;
-			case "FALSE":match("FALSE");break;
+			case "EQUAL":{
+				match("EQUAL");tree.add("equal");tree.add("(");
+				for(String x:templow1) {
+					tree.add(x);
+				};
+				break;
 			}
-			lowExpression();
+			case "NOLARGERTHAN":{
+				match("NOLARGERTHAN");tree.add("NoLargerThan");tree.add("(");
+				for(String x:templow1) {
+					tree.add(x);
+				};
+				break;
+			}
+			case "NOLESSTHAN":{
+				match("NOLESSTHAN");tree.add("NoLessThan");tree.add("(");
+				for(String x:templow1) {
+					tree.add(x);
+				};
+				break;
+			}
+			case "NOTEQUAL":{
+				match("NOTEQUAL");tree.add("NotEqual");tree.add("(");
+				for(String x:templow1) {
+					tree.add(x);
+				};
+				break;
+			}
+			case "ASSIGNMENT":{
+				match("ASSIGNMENT");tree.add("assignment");tree.add("(");
+				for(String x:templow1) {
+					tree.add(x);
+				};
+				break;
+			}			
+			}
+			Queue<String> templow2=lowExpression();
+			for(String x:templow2) {
+				tree.add(x);
+			};
 			tree.add(")");
 		}
-		
-		tree.add(")");
 	}
 	
-	public static void lowExpression() {
-		highExpression();
+	public static Queue<String> lowExpression() {
+		Queue<String> tempHigh=highExpression();
+		Queue<String> temp=new LinkedList<String>();
 		if (token.tokenType.equals("PLUS")||token.tokenType.equals("MINUS")) {
 			switch(token.tokenType) {
-			case "PLUS":match("PLUS");lowExpression();break;
-			case "MINUS":match("MINUS");lowExpression();break;
+			case "PLUS":{
+				match("PLUS");temp.add("plus");temp.add("(");
+				for(String x:tempHigh) {
+					temp.add(x);
+				};
+				Queue<String> tempLow=lowExpression();
+				for(String x:tempLow) {
+					temp.add(x);
+				};
+				temp.add(")");
+				break;
+			}
+			case "MINUS":{
+				match("MINUS");temp.add("minus");temp.add("(");
+				for(String x:tempHigh) {
+					temp.add(x);
+				};
+				Queue<String> tempLow=lowExpression();
+				for(String x:tempLow) {
+					temp.add(x);
+				};
+				temp.add(")");
+				break;
+				}
 			}			
-		}else return;
-		tree.add(")");
+		}else {
+			for(String x:tempHigh) {
+				temp.add(x);
+			};
+		}		
+		return temp;
 	}
 	
-	public static void highExpression() {
+	public static Queue<String> highExpression() {
+		Queue<String> temp=new LinkedList<String>();
+		String s="";
 		if (token.tokenType.equals("IDENTIFIER")) {
-			identifier();
-		}else if (token.tokenType.equals("NUMBER")) number();	
+			s=identifier();
+		}else if (token.tokenType.equals("NUMBER")) {
+			s=number();	
+		}
 		
 		if (token.tokenType.equals("MULTIPLE")||token.tokenType.equals("DIVIDE")) {
 			switch(token.tokenType) {
-			case "MULTIPLE":match("MULTIPLE");highExpression();break;
-			case "DIVIDE":match("DIVIDE");highExpression();break;
+			case "MULTIPLE":{
+				match("MULTIPLE");temp.add("multiple");temp.add("(");temp.add(s);
+				for(String x:highExpression()) {
+					temp.add(x);
+				};
+				temp.add(")");
+				break;
+			}
+			case "DIVIDE":{
+				match("DIVIDE");temp.add("divide");temp.add("(");temp.add(s);
+				for(String x:highExpression()) {
+					temp.add(x);
+				};
+				temp.add(")");break;
+			}
 			}			
+		}else {
+			temp.add(s);
 		}
-		tree.add(")");
+		return temp;
 	}
 	
-	public static void number() {
-		tree.add(token.value);
+	public static String number() {		
+		String value=token.value;		
 		match("NUMBER");
+		return value;
 	}
 	
-	public static void identifier() {
-		tree.add(token.value);
+	public static String identifier() {
+		String value=token.value;
 		match("IDENTIFIER");
-	}
-	
-	public static void keyWord(String s) {
-		String type=token.tokenType;
-		if(s.equals(type)) match(s);
-	}
-	
-	public static void operator(String s) {
-		String type=token.tokenType;
-		if(s.equals(type)) match(s);
-	}
-	
-	public static void symbol(String s) {		
-		String type=token.tokenType;
-		if(s.equals(type)) match(s);
-		
+		return value;
 	}
 	
 	public static void match(String tokenType) {	
@@ -204,7 +267,6 @@ public class Parser {
 	public static void getToken() {
 		if(!tokenList.isEmpty()) token=tokenList.poll();
 		else token=null;
-		//tree.add(token.value);
 	}
 	
 	public static void printTree() {
