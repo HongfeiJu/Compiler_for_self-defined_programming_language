@@ -15,53 +15,68 @@ public class Parser {
 		lexcer.getTokens();
 		lexcer.printTokens();
 		tokenList=lexcer.getTokensString();
-		//program();
+		program();
 	}
 	
 	public Parser(Queue<Lexcer.Token> s) {
 		tokenList=s;
-		//program();
+		program();
 	}
 	
 	public static void program() {
 		token=tokenList.poll();
+		tree.add("program");
+		tree.add("(");
 		statementList();
+		tree.add(")");
 	}
 	
 	public static void statementList() {
+		tree.add("stmtList");
+		tree.add("(");
 		statement();
-		System.out.println("debug:"+token);
-		if (token==null) System.exit(0);
+		//System.out.println("debug:"+token);
+		if (token==null) return;
 		else if (token.tokenType.equals("VAR")||token.tokenType.equals("IDENTIFIER")||token.tokenType.equals("IF")
 		  ||token.tokenType.equals("WHILE")||token.tokenType.equals("PRINT")) {
 			statementList();
 		}
-		
+		tree.add(")");
 	}
 	
 	public static void statement() {
+		tree.add("stmt");
+		tree.add("(");
 		if (token.tokenType.equals("VAR")) declaration();
 		else if (token.tokenType.equals("IDENTIFIER")) assignment();
 		else if (token.tokenType.equals("IF")) ifStatement();
 		else if (token.tokenType.equals("WHILE")) whileStatement();
-		else if (token.tokenType.equals("PRINT")) printFunc();		
+		else if (token.tokenType.equals("PRINT")) printFunc();
+		tree.add(")");
 	}
 	
-	public static void declaration() {
-		
+	public static void declaration() {		
+		tree.add("dcl");
+		tree.add("(");
 		match("VAR");		
 		identifier();
 		match("SEMICOLON");
+		tree.add(")");
 	}
 	
 	public static void assignment() {
-		match("IDENTIFIER");
-		match("ASSIGNMENT");
+		tree.add("asgm");
+		tree.add("(");
+		identifier();
+		match("ASSIGNMENT");		
 		lowExpression();
 		match("SEMICOLON");
+		tree.add(")");
 	}
 	
 	public static void ifStatement() {
+		tree.add("if");
+		tree.add("(");
 		match("IF");
 		match("LPAREN");
 		booleanExpression();
@@ -75,37 +90,55 @@ public class Parser {
 			match("LCBRACKET");
 			statementList();
 			match("RCBRACKET");
-		}		
+		}
+		tree.add(")");
 	}
 	
 	public static void whileStatement() {
+		tree.add("while");
+		tree.add("(");
 		match("WHILE");
 		match("LPAREN");
 		booleanExpression();
 		match("RPAREN");
 		match("LCBRACKET");
 		statementList();
-		match("RCBRACKET");		
+		match("RCBRACKET");
+		tree.add(")");
 	}
 	
 	public static void printFunc() {
+		tree.add("print");
+		tree.add("(");
 		match("PRINT");
 		lowExpression();
 		match("SEMICOLON");
+		tree.add(")");
 	}
 	
 	public static void booleanExpression() {
-		lowExpression();
-		switch(token.tokenType) {
-		case "EQUAL":match("EQUAL");break;
-		case "NOLARGERTHAN":match("NOLARGERTHAN");break;
-		case "NOLESSTHAN":match("NOLESSTHAN");break;
-		case "NOTEQUAL":match("NOTEQUAL");break;
-		case "ASSIGNMENT":match("ASSIGNMENT");break;
-		case "TRUE":match("TRUE");break;
-		case "FALSE":match("FALSE");break;
+		if (token.tokenType.equals("TRUE")) {
+			tree.add("true");
+			match("TRUE");
+		}else if (token.tokenType.equals("FALSE")) {
+			tree.add("false");
+			match("FALSE");
+		}else {
+			lowExpression();
+			switch(token.tokenType) {
+			case "EQUAL":match("EQUAL");break;
+			case "NOLARGERTHAN":match("NOLARGERTHAN");break;
+			case "NOLESSTHAN":match("NOLESSTHAN");break;
+			case "NOTEQUAL":match("NOTEQUAL");break;
+			case "ASSIGNMENT":match("ASSIGNMENT");break;
+			case "TRUE":match("TRUE");break;
+			case "FALSE":match("FALSE");break;
+			}
+			lowExpression();
+			tree.add(")");
 		}
-		lowExpression();
+		
+		tree.add(")");
 	}
 	
 	public static void lowExpression() {
@@ -116,31 +149,30 @@ public class Parser {
 			case "MINUS":match("MINUS");lowExpression();break;
 			}			
 		}else return;
-		
+		tree.add(")");
 	}
 	
-	public static void highExpression() {			
+	public static void highExpression() {
 		if (token.tokenType.equals("IDENTIFIER")) {
-			match("IDENTIFIER");
-		}else if (token.tokenType.equals("NUMBER")) match("NUMBER");	
+			identifier();
+		}else if (token.tokenType.equals("NUMBER")) number();	
 		
 		if (token.tokenType.equals("MULTIPLE")||token.tokenType.equals("DIVIDE")) {
 			switch(token.tokenType) {
 			case "MULTIPLE":match("MULTIPLE");highExpression();break;
 			case "DIVIDE":match("DIVIDE");highExpression();break;
-			}
-			
-			
+			}			
 		}
-		
-		
+		tree.add(")");
 	}
 	
 	public static void number() {
+		tree.add(token.value);
 		match("NUMBER");
 	}
 	
 	public static void identifier() {
+		tree.add(token.value);
 		match("IDENTIFIER");
 	}
 	
@@ -161,7 +193,7 @@ public class Parser {
 	}
 	
 	public static void match(String tokenType) {	
-		if (token==null) throw new RuntimeException("No tokens");
+		if (token==null) return;//throw new RuntimeException("No tokens");
 		String type=token.tokenType;
 		if (type.equals(tokenType)) {
 			getToken();System.out.println(type+" match");
@@ -177,7 +209,7 @@ public class Parser {
 	
 	public static void printTree() {
 		for (String x:tree) {
-			System.out.println(x);
+			System.out.print(x+" ");
 		}
 	}
 	
@@ -195,9 +227,8 @@ public class Parser {
 		tokenList.add(new Lexcer.Token("SEMICOLON",";"));
 		
 		Parser parser=new Parser(filename);
-		parser.program();
 		//parser.printTree();
-		
+		parser.printTree();
 		
 		
 	}
