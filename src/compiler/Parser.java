@@ -271,7 +271,15 @@ public class Parser {
 	
 	public static void printTree() {
 		for (String x:tree) {
-			System.out.print(x+" ");
+			if(true) {
+				System.out.print(x+" ");
+			}
+			if(false) {
+				if(!x.equals("(")&&!x.equals(")")) {
+					System.out.println(x+" ");
+				}
+			}
+			
 		}
 	}
 	
