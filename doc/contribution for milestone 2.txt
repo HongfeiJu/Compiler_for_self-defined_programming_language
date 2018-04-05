@@ -6,10 +6,21 @@ Hongfei Ju:
    2.1. design the primitive type (boolean and int) and operator
    2.2. design the parsing technique (bottom-up) and needed data structure (symbaol table) [prototype design,simple descripton)
    2.3. first version grammer [includes all the data types and constructs that are required, need further revision from other group memeber]
-3.
 
 -----------------------------------------------------
 Zachary Wang:
+
 -----------------------------------------------------
 Ruihao Zhou:
+
 -----------------------------------------------------
+contribution plan for following weeks
+
+ps: every member will participate the implementation of all the components of the compiler.
+
+Every componet will be assigned to one major contributor, which is as followed:
+
+1. Lexcer: Ruihao Zhou
+2. Parser: Hongfei Ju
+3. Intermediate code generator: Zachary Wang
+4. runtime: Hongfei Ju/Ruihao Zhou
