@@ -1,6 +1,7 @@
 # SER502-Spring2018-Team<24>
 
 **Members**
+
 Hongfei Ju
 
 Ruihao Zhou
@@ -48,9 +49,7 @@ The presentation video about this project is [here]().
 
 ## Language Name
 
-**TEN** will be our language name since we are team **TEN**. 
-
-Also, in Chinese "ten" means perfect, we will try to make this small language project as perfect as possible in the limited time.
+**L24** will be our language name since we are team **24**. 
 
 
 ## Grammar Rule
