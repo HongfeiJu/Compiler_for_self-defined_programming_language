@@ -1,11 +1,22 @@
-Tracking details on:
+﻿Tracking details on:
 https://github.com/HongfeiJu/SER502-Spring2018-Team-24
 ------------------------------------------------------
 Week 0: (March 22-23)
-We had a group meeting and know each other, then we build a Github repo "SER502-Spring2018-Team<#24>".
+
+Target: 
+1.Meeting and knowing each other
+2.Building a Github repo "SER502-Spring2018-Team<#24>" for the project.
+
+Hongfei Ju：
+1. Setting and editing the Github repository
 
 ------------------------------------------------------
 Week 1: (March 26 - April 1) 
+
+Target:
+1. preliminary designing of the programming language
+
+
 Zachary Wang:
     
 
@@ -20,6 +31,11 @@ Ruihao Zhou:
 We had a group meeting at March 29, discuss Parsing tree, intermediate code and environment.
 ------------------------------------------------------
 Week 2: (April 2 - April 8) 
+
+Target:
+1. revise and complete the design of the programming language
+2. prepare and submite milestone 2 document.
+
 Zachary Wang:
     Working on Document for Milestone 2
     uploading the Lexical and Parse file writing by myself 

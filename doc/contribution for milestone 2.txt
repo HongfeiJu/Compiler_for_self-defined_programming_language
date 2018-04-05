@@ -1,0 +1,14 @@
+SER502-Spring2018-Team-24
+-----------------------------------------------------
+Hongfei Ju:
+1. Setting and editing the Github repository
+2. preliminary design of language
+   2.1. design the primitive type (boolean and int) and operator
+   2.2. design the parsing technique (bottom-up) and needed data structure (symbaol table) [prototype design,simple descripton)
+   2.3. first version grammer [includes all the data types and constructs that are required, need further revision from other group memeber] 
+
+-----------------------------------------------------
+Zachary Wang:
+-----------------------------------------------------
+Ruihao Zhou:
+-----------------------------------------------------
