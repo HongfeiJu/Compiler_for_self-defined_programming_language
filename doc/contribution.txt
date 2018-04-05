@@ -18,9 +18,9 @@ Zachary Wang:
     
 
 Hongfei Ju：
-1. design the primitive type (boolean and int) and operator
-2. design the parsing technique (bottom-up) and needed data structure (symbaol table) [prototype design,simple descripton)
-3. first version grammer [includes all the data types and constructs that are required, need further revision from other group memeber] 
+1. Design the primitive type (boolean and int) and operator
+2. Design the parsing technique (bottom-up) and needed data structure (symbaol table) [prototype design,simple descripton)
+3. First version grammer [includes all the data types and constructs that are required, need further revision from other group memeber] 
 
 Ruihao Zhou:
 1. Learn how to use Github 
