@@ -16,6 +16,12 @@ Zachary Wang:
 
 -----------------------------------------------------
 Ruihao Zhou:
+1. Learn how to use Github and Study on the prerequisites about Compiler knowledge 
+2. Try to implement lexical and parser analysis by using python
+3. Working on related document for Milestone 2
+   3.1 Edit READ.ME
+   3.2 In charge of contribution.txt
+4. Provide insight on Compiler design 
 
 -----------------------------------------------------
 contribution plan for following weeks
