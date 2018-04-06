@@ -1,6 +1,5 @@
 ﻿Tracking details on:
 https://github.com/HongfeiJu/SER502-Spring2018-Team-24
-
 ------------------------------------------------------
 Week 0: (March 22-23)
 
@@ -19,13 +18,13 @@ Zachary Wang:
     
 
 Hongfei Ju：
-1. design the primitive type (boolean and int) and operator
-2. design the parsing technique (bottom-up) and needed data structure (symbaol table) [prototype design,simple descripton)
-3. first version grammer [includes all the data types and constructs that are required, need further revision from other group memeber] 
+1. Design the primitive type (boolean and int) and operator
+2. Design the parsing technique (bottom-up) and needed data structure (symbaol table) [prototype design,simple descripton)
+3. First version grammer [includes all the data types and constructs that are required, need further revision from other group memeber] 
 
 Ruihao Zhou:
-    Learn how to use Github 
-    Studying on the prerequisites about Compiler knowledge 
+1. Learn how to use Github 
+2. Studying on the prerequisites about Compiler knowledge 
 
 We had a group meeting at March 29, discuss Parsing tree, intermediate code and environment.
 ------------------------------------------------------
@@ -34,26 +33,22 @@ Week 2: (April 2 - April 8)
 Target: 1. revise and complete the design of the programming language  2. prepare and submite milestone 2 document.
 
 Zachary Wang:
-    Working on Document for Milestone 2
-    uploading the Lexical and Parse file writing by myself 
+
 
 Hongfei Ju：
 
+
 Ruihao Zhou:
-    Working on Document for Milestone 2
-    Uploading the Lexical and Parse file writing by myself
-    keep tracking the contribution text file in Github
-    Eidt some README.md
--------------------------------------------------------
-contribution plan for following weeks
+1. Working on Document for Milestone 2
+2. Uploading the Lexical and Parse file writing by myself
+3. keeping the contribution text file in Github
+4. Eidt README.md
 
-ps: every member will participate the implementation of all the components of the compiler.
+We had a group meeting at April 5, conduct the Milestone2 document and discuss the compiler design. 
+------------------------------------------------------
+Future Plan: (April 9 - April 28)
 
-Every componet will be assigned to one major contributor, which is as followed:
+Target: 
 
-1. Lexcer: Ruihao Zhou
-2. Parser: Hongfei Ju
-3. Intermediate code generator: Zachary Wang
-4. runtime: Hongfei Ju/Ruihao Zhou
 
 
