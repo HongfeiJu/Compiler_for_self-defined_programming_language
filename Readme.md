@@ -58,19 +58,19 @@ The presentation video about this project is [here]().
 program  :  statement_list ;
 statement_list  :  statement  statement_list  |  statement  ;
 statement  :  declaration  |  assignment  |  if_statement  |  while_statement  |  print  ;
-declaration  :  'var'  ID  ';'  ;
-assignment  :  ID  ':='  low_expression ';'  ;
-if_statement  :  'if'  '(' boolean_expression  ')'  'correct'  '{'  statement_list  '}'  |  'if'  '('  boolean_expression  ')'  'correct'  '{'  statement_list  '}'  'wrong'  '{'  statement_list  '}'  ;
-while_statement  :  'while'  '('  boolean_expression  ')'  '{'  statement_list  '}'  ;
-print  :  'print'  low_expression  ;
-boolean_expression  :  low_expression  '=='  low_expression  |  low_expression  '>'  low_expression  |  low_expression  '>='   low_expression  |  low_expression '<' low_expression  |  low_expression  '<='  low_expression  |  low_expression  '!='  low_expression  |  boolean_val  ;
-boolean_val  :  'true'  |  'false'  ;
-low_expression  :  high_expression  '+'  low_expression  |  high_expression  '-'  low_expression  |  high_expression  ;
-high_expression  :  item  '*'  high_expression  |  item  '/'  high_expression  |  item  ;
-item  :  ID | NUMBER  ;
-ID  :  [a-z|A-Z]+  ;
-NUMBER  :  [0-9]+  ;
-WS :  [ \t\r\n]+ -> skip ;
+declaration  :  ‘var’  identifier  ‘;’  ;
+assignment  :  identifier  ‘=’  number  ‘;’  ;
+if_statement  :  ‘if’  ‘(‘  Boolean_expression  ‘)’  ‘correct’  ‘{‘  statement_list  ‘}’  |  ‘if’  ‘(‘  Boolean_expression  ‘)’  ‘correct’  ‘{‘  statement_list  ‘}’  ‘wrong’  ‘{‘  statement_list  ‘}’  ;
+while_statement  :  ‘while’  ‘(‘  Boolean_expression  ‘)’  ‘{‘  statement_list  ‘}’  ;
+print  :  ‘print’  low_expression  ;	
+boolean_expression  :  expression  ‘==’  expression  |  expression  ‘>’  expression  |  expression  ‘>=’   expression  |  expression ‘<’ expression  |  expression  ‘<=’  expression  |  expression  ‘!=’  expression  |  boolean_val  ;
+boolean_val  :  ‘true’  |  ‘false’  ;
+low_expression  :  high_expression  ‘+’  low_expression  |  high_expression  ‘-‘  low_expression  |  high_expression  ;
+high_expression  :  item  ‘*’  high_expression  |  item  ‘/’  high_expression  |  item  ;
+item  :  identifier | number  ;
+identifier  :  [a-z|A-Z]+  ;
+number  :  [-]?[0-9]+  ;
+white_space :  [ \t\r\n]+ -> skip ;
 ```
 
 ## Design Details
