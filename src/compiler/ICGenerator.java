@@ -65,9 +65,9 @@ public class ICGenerator {
 		System.out.println("processing hIf "+t.operator);
 		int localLC=labelCounter++;
 		hBExpression(t.sub1,s);
-		s.add("L"+localLC+"T");
+		s.add("L"+localLC+"F");
 		s.add("\r\n");
-		s.add("L"+localLC+"T:  ");s.add("\r\n");
+		//s.add("L"+localLC+"T:  ");s.add("\r\n");
 		hStatementList(t.sub2);
 		s.add("goto");s.add(" "+"L"+localLC+"E");s.add("\r\n");
 		s.add("L"+localLC+"F: ");s.add("\r\n");
@@ -81,7 +81,7 @@ public class ICGenerator {
 		int localLC=labelCounter++;
 		s.add("L"+localLC+"S: ");s.add("\r\n");
 		hBExpression(t.sub1,s);
-		s.add("L"+localLC+"T: ");s.add("\r\n");
+		s.add("L"+localLC+"E: ");s.add("\r\n");
 		hStatementList(t.sub2);
 		s.add("goto");s.add(" "+"L"+localLC+"S");s.add("\r\n");
 		s.add("L"+localLC+"E: ");s.add("\r\n");
@@ -93,7 +93,7 @@ public class ICGenerator {
 		String var2=hLExpression(t.sub2,s);
 		String relation="";
 		if(t.operator.equals("true")||t.operator.equals("false")){
-			s.add("if "+t.operator+"\r\ngoto ");			
+			s.add("ifNot "+t.operator+"\r\ngoto ");			
 		}else {
 			switch(t.operator) {
 			case "equal":relation="==";break;
@@ -105,7 +105,7 @@ public class ICGenerator {
 			case "true":relation="true";break;
 			case "false":relation="false";break;
 			}
-			s.add("if "+var1+" "+relation+" "+var2+"\r\ngoto ");
+			s.add("ifNot "+var1+" "+relation+" "+var2+" goto ");
 		}
 		
 	}
