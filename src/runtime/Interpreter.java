@@ -35,7 +35,11 @@ public class Interpreter {
 					type = 4;
 					break;
 				}
-				if (splited[j].equals("if") || splited[j].equals("while")) {
+				if (j == 0 && splited[j].equals("OUT")) {
+					type = 6;
+					break;
+				}
+				if (splited[j].equals("ifNot") || splited[j].equals("while")) {
 					type = 3;
 					break;
 				}
@@ -47,13 +51,17 @@ public class Interpreter {
 					break;
 				}
 			}
-			if (type != 1 && type != 3 && type != 4 && splited.length == 5) {
-				type = 2; // Two operand and one operator
+			if (type != 1 && type != 3 && type != 4 && splited.length == 3) {
+				type = 2; // Assignment
 			}
-//			System.out.println("line: " + line + ", type: " + type);
+			if (type != 1 && type != 3 && type != 4 && splited.length == 1) {
+				type = 5; // Assignment
+			}
+			
+			System.out.println("line: " + line + "+1 , type: " + type);
 			
 			switch (type) {			
-			case 1:
+			case 1: // M1 := M1 * M2
 				int valueLeft = 0;
 				int valueRight = 0;
 				
@@ -78,7 +86,7 @@ public class Interpreter {
 					}
 				}
 							
-//				System.out.println("operator: " + splited[4]);
+//				System.out.println("operation: " + valueLeft + " " + splited[3] + " " + valueRight);
 				
 				if (splited[3].equals("+")) {
 					hm.put(splited[0], valueLeft + valueRight);
@@ -93,11 +101,11 @@ public class Interpreter {
 					hm.put(splited[0], valueLeft / valueRight);
 				}
 				else {
-					System.out.println("line: " + line + ", somthing wrong!");
+					System.out.println("line: " + line + ", type 1 exception!");
 				}
 				
 				break;
-			case 2:
+			case 2: // M3 := M4
 				int value = 0;
 				
 				if (!hm.containsKey(splited[0])) {
@@ -115,7 +123,7 @@ public class Interpreter {
 				}
 				
 				break;
-			case 3:
+			case 3: // ifNot M0 <= M7 goto L0F
 				int conditionLeft = 0;
 				int conditionRight = 0;
 				
@@ -139,44 +147,8 @@ public class Interpreter {
 				}
 				
 				if (splited[2].equals(">=")) {
-					if (conditionLeft >= conditionRight) {
-						String targetStr = splited[6] + ":";
-						int k = 0;
-						while (strstr[k] != null) {
-							if (strstr[k].indexOf(targetStr) == 0) {
-								line = k - 1;
-								break;
-							}
-							k += 1;
-						}
-					}
-				} else if (splited[3].equals("<=")) {
-					if (conditionLeft <= conditionRight) {
-						String targetStr = splited[6] + ":";
-						int k = 0;
-						while (strstr[k] != null) {
-							if (strstr[k].indexOf(targetStr) == 0) {
-								line = k - 1;
-								break;
-							}
-							k += 1;
-						}
-					}
-				} else if (splited[3].equals(">")) {
-					if (conditionLeft > conditionRight) {
-						String targetStr = splited[6] + ":";
-						int k = 0;
-						while (strstr[k] != null) {
-							if (strstr[k].indexOf(targetStr) == 0) {
-								line = k - 1;
-								break;
-							}
-							k += 1;
-						}
-					}
-				} else if (splited[3].equals("<")) {
 					if (conditionLeft < conditionRight) {
-						String targetStr = splited[6] + ":";
+						String targetStr = splited[5] + ":";
 						int k = 0;
 						while (strstr[k] != null) {
 							if (strstr[k].indexOf(targetStr) == 0) {
@@ -186,9 +158,57 @@ public class Interpreter {
 							k += 1;
 						}
 					}
-				} else if (splited[3].equals("==")) {
+				} else if (splited[2].equals("<=")) {
+					if (conditionLeft > conditionRight) {
+						String targetStr = splited[5] + ":";
+						int k = 0;
+						while (strstr[k] != null) {
+							if (strstr[k].indexOf(targetStr) == 0) {
+								line = k - 1;
+								break;
+							}
+							k += 1;
+						}
+					}
+				} else if (splited[2].equals(">")) {
+					if (conditionLeft <= conditionRight) {
+						String targetStr = splited[5] + ":";
+						int k = 0;
+						while (strstr[k] != null) {
+							if (strstr[k].indexOf(targetStr) == 0) {
+								line = k - 1;
+								break;
+							}
+							k += 1;
+						}
+					}
+				} else if (splited[2].equals("<")) {
+					if (conditionLeft >= conditionRight) {
+						String targetStr = splited[5] + ":";
+						int k = 0;
+						while (strstr[k] != null) {
+							if (strstr[k].indexOf(targetStr) == 0) {
+								line = k - 1;
+								break;
+							}
+							k += 1;
+						}
+					}
+				} else if (splited[2].equals("==")) {
+					if (conditionLeft != conditionRight) {
+						String targetStr = splited[5] + ":";
+						int k = 0;
+						while (strstr[k] != null) {
+							if (strstr[k].indexOf(targetStr) == 0) {
+								line = k - 1;
+								break;
+							}
+							k += 1;
+						}
+					}
+				} else if (splited[2].equals("!=")) {
 					if (conditionLeft == conditionRight) {
-						String targetStr = splited[6] + ":";
+						String targetStr = splited[5] + ":";
 						int k = 0;
 						while (strstr[k] != null) {
 							if (strstr[k].indexOf(targetStr) == 0) {
@@ -199,15 +219,15 @@ public class Interpreter {
 						}
 					}
 				} else {
-					System.out.println("line: " + line + ", somthing wrong!");
+					System.out.println("line: " + line + ", type 3 exception!");
 				}
 				
 				break;
-			case 4:
+			case 4: // goto L0E
 //				System.out.println("goto");
-//				System.out.println(splited[2]);
+//				System.out.println(splited[1]);
 				
-				String targetStr = splited[2] + ":";
+				String targetStr = splited[1] + ":";
 				int k = 0;
 				
 				while (strstr[k] != null) {
@@ -219,24 +239,32 @@ public class Interpreter {
 				}
 				
 				break;
-			case 5:
-				System.out.println("OUT");
-				System.out.println(splited[1]);
+			case 5: // L0E:
+				System.out.println(splited[0]);
+				System.out.println("empty line!");
 				
-				
+				break;
+			case 6: // OUT M0
+//				System.out.println("OUT");
+				System.out.println(hm.get(splited[1]));
 				
 				break;
 			default:
-//				System.out.println("Empty!");
+				System.out.println("Error!");
 				
 				break;
+			}
+			
+			System.out.println("  HashMap Temporary Content:");
+			for (Map.Entry<String, Integer> m:hm.entrySet()) {
+				System.out.println("  " + m.getKey() + ": " + m.getValue());
 			}
 			
 			line += 1;
 			type = 0;
 		}
 		
-		System.out.println("\nHashMap Content:");
+		System.out.println("\nHashMap Final Content:");
 		for (Map.Entry<String, Integer> m:hm.entrySet()) {
 			System.out.println(m.getKey() + ": " + m.getValue());
 		}
