@@ -11,14 +11,14 @@ public class Interpreter {
 	}
 
 	public static void main(String[] args) throws IOException {
-		File file = new File("/Users/david/Desktop/input.txt");
+		File file = new File("/Users/david/Desktop/ICSample.txt");
 		BufferedReader br = new BufferedReader(new FileReader(file));
 		
 		String str;
 		String[] strstr = new String[100];
 		int i = 0;
 		while ((str = br.readLine()) != null) {
-//			System.out.println(str);
+			System.out.println(str);
 			strstr[i] = str;
 			i += 1;
 		}
@@ -31,7 +31,7 @@ public class Interpreter {
 			String[] splited = strstr[line].split("\\s+");
 			
 			for (int j = 0; j < splited.length; j++) {
-				if (j == 1 && splited[j].equals("goto")) {
+				if (j == 0 && splited[j].equals("goto")) {
 					type = 4;
 					break;
 				}
@@ -54,26 +54,26 @@ public class Interpreter {
 			
 			switch (type) {			
 			case 1:
-				int value1 = 0;
-				int value2 = 0;
+				int valueLeft = 0;
+				int valueRight = 0;
 				
 				if (hm.containsKey(splited[3])) {
-					value1 = hm.get(splited[3]);
+					valueLeft = hm.get(splited[3]);
 				} else {
 					try {
-						value1 = Integer.parseInt(splited[3]);
+						valueLeft = Integer.parseInt(splited[3]);
 					} catch (Exception ex) {
-						value1 = 0;
+						valueLeft = 0;
 						hm.put(splited[3], 0); // Is it possible?
 					}
 				}
 				if (hm.containsKey(splited[5])) {
-					value2 = hm.get(splited[5]);
+					valueRight = hm.get(splited[5]);
 				} else {
 					try {
-						value2 = Integer.parseInt(splited[5]);
+						valueRight = Integer.parseInt(splited[5]);
 					} catch (Exception ex) {
-						value2 = 0;
+						valueRight = 0;
 						hm.put(splited[5], 0); // Is it possible?
 					}
 				}
@@ -81,16 +81,16 @@ public class Interpreter {
 //				System.out.println("operator: " + splited[4]);
 				
 				if (splited[4].equals("+")) {
-					hm.put(splited[1], value1 + value2);
+					hm.put(splited[1], valueLeft + valueRight);
 				}
 				else if (splited[4].equals("-")) {
-					hm.put(splited[1], value1 - value2);
+					hm.put(splited[1], valueLeft - valueRight);
 				}
 				else if (splited[4].equals("*")) {
-					hm.put(splited[1], value1 * value2);
+					hm.put(splited[1], valueLeft * valueRight);
 				}
 				else if (splited[4].equals("/")) {
-					hm.put(splited[1], value1 / value2);
+					hm.put(splited[1], valueLeft / valueRight);
 				}
 				else {
 					System.out.println("line: " + line + ", somthing wrong!");
@@ -217,6 +217,13 @@ public class Interpreter {
 					}
 					k += 1;
 				}
+				
+				break;
+			case 5:
+				System.out.println("OUT");
+				System.out.println(splited[1]);
+				
+				
 				
 				break;
 			default:
