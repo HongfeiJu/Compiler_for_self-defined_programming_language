@@ -67,7 +67,6 @@ public class ICGenerator {
 		hBExpression(t.sub1,s);
 		s.add("L"+localLC+"F");
 		s.add("\r\n");
-		//s.add("L"+localLC+"T:  ");s.add("\r\n");
 		hStatementList(t.sub2);
 		s.add("goto");s.add(" "+"L"+localLC+"E");s.add("\r\n");
 		s.add("L"+localLC+"F: ");s.add("\r\n");
@@ -116,14 +115,15 @@ public class ICGenerator {
 		if (t.sub2!=null) {
 			String var1=hHExpression(t.sub1,ic);
 			String var2=hLExpression(t.sub2,ic);
-			s.add(var1+" := "+var1);
+			String location="M"+mLocation; mLocation++;
+			s.add(location+" := "+var1);
 			if(t.operator.equals("plus")) s.add(" +");	counter++;
 			if(t.operator.equals("minus")) s.add(" -");counter++;
 			if(t.operator.equals("multiple")) s.add(" *");	counter++;
 			if(t.operator.equals("divide")) s.add(" /");counter++;
 			s.add(" "+var2);
 			s.add("\r\n");
-			return var1;
+			return location;
 		}else {
 			return hHExpression(t,ic);
 		}
@@ -137,22 +137,23 @@ public class ICGenerator {
 			if(t.sub1.operator.equals("identifier")) var1=hIdentifier(t.sub1,ic);
 			if(t.sub1.operator.equals("number")) var1=hNumber(t.sub1,ic);
 			String var2=hHExpression(t.sub2,ic);
-			s.add(var1+" := "+var1);
+			String location="M"+mLocation; mLocation++;
+			s.add(location+" := "+var1);
 			s.add(" *");counter++;
 			s.add(" "+var2);
 			s.add("\r\n");
-			return var1;
-		}
-		if(t.operator.equals("divide")) {
+			return location;
+		}else if(t.operator.equals("divide")) {
 			String var1="";
 			if(t.sub1.operator.equals("identifier")) var1=hIdentifier(t.sub1,ic);
 			if(t.sub1.operator.equals("number")) var1=hNumber(t.sub1,ic);
 			String var2=hHExpression(t.sub2,ic);
-			s.add(var1+" := "+var1);
+			String location="M"+mLocation; mLocation++;
+			s.add(location+" := "+var1);
 			s.add(" /");counter++;
 			s.add(" "+var2);
 			s.add("\r\n");
-			return var1;
+			return location;
 		}
 		if(t.operator.equals("identifier")) {
 			return hIdentifier(t,s);		
@@ -178,7 +179,7 @@ public class ICGenerator {
 		System.out.println("processing hNumber "+t.operator);
 		String location="M"+mLocation; mLocation++;
 		s.add(location);
-		s.add(" :=");counter++;
+		s.add(" :=");
 		s.add(" "+t.sub1.operator);
 		s.add("\r\n");
 		return location;		
@@ -186,8 +187,8 @@ public class ICGenerator {
 	
 	public static void hPrint(AST t) {
 		System.out.println("processing hPrint "+t.operator);
-		String var=hIdentifier(t.sub1,ic);
-		ic.add("OUT");counter++;
+		String var=hIdentifier(t,ic);
+		ic.add("OUT");
 		ic.add(" "+var);
 		ic.add("\r\n");
 	}
