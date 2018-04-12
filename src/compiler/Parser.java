@@ -6,7 +6,6 @@ public class Parser {
 	private String filename;
 	private static Lexcer.Token token;
 	private static Queue<Lexcer.Token> tokenList=new LinkedList<Lexcer.Token>();
-	private static Queue<String> tree=new LinkedList<String>();
 	public static AST ast=new AST("program");
 	
 	public Parser(String s) throws FileNotFoundException {
@@ -26,8 +25,6 @@ public class Parser {
 	
 	public static void program(AST t) {
 		token=tokenList.poll();
-		//tree.add("program");
-		//tree.add("(");
 		t.sub1=new AST("stmtList");
 		statementList(t.sub1);
 		//tree.add(")");
@@ -52,11 +49,11 @@ public class Parser {
 		//tree.add("stmt");
 		//tree.add("(");
 		if (token.tokenType.equals("VAR")) {
-			t.sub1=new AST("dcl");
+			t.sub1=new AST("declare");
 			declaration(t.sub1);
 		}
 		else if (token.tokenType.equals("IDENTIFIER")) {
-			t.sub1=new AST("asgm");
+			t.sub1=new AST("assignment");
 			assignment(t.sub1);
 		}
 		else if (token.tokenType.equals("IF")) {
@@ -137,8 +134,6 @@ public class Parser {
 	
 	public static void printFunc(AST t) {
 		
-		//tree.add("print");
-		//tree.add("(");
 		match("PRINT");
 		t.sub1=identifier();
 		//tree.add(identifier(t));
@@ -170,71 +165,50 @@ public class Parser {
 				}
 			case "NOLARGERTHAN":{
 				match("NOLARGERTHAN");
-				t.operator="NOLARGERTHAN";
+				t.operator="noLargerThan";
 				break;
 				}
 			case "NOLESSTHAN":{
 				match("NOLESSTHAN");
-				t.operator="NOLESSTHAN";
+				t.operator="noLessThan";
 				break;
 				}
 			case "NOTEQUAL":{
 				match("NOTEQUAL");
-				t.operator="NOTEQUAL";
+				t.operator="notEqual";
 				break;
 				}
 			case "LARGERTHAN":{
 				match("LARGERTHAN");
-				t.operator="LARGERTHAN";
+				t.operator="largerThan";
 				break;
 				}	
 			case "LESSTHAN":{
 				match("LESSTHAN");
-				t.operator="LESSTHAN";
+				t.operator="lessThan";
 				break;
 				}
 			}
 			t.sub2=lowExpression();			
 			}
-			//tree.add(")");
 		return t;
 		}
 	
 	public static AST lowExpression() {
 		AST t=new AST("");
-		//Queue<String> tempHigh=highExpression();
-		//Queue<String> temp=new LinkedList<String>();
 		t.sub1=highExpression();
 		if (token.tokenType.equals("PLUS")||token.tokenType.equals("MINUS")) {
 			switch(token.tokenType) {
 			case "PLUS":{
 				match("PLUS");
-				t.operator="PLUS";
+				t.operator="plus";
 				t.sub2=lowExpression();
-				/*temp.add("plus");temp.add("(");
-				for(String x:tempHigh) {
-					temp.add(x);
-				};
-				Queue<String> tempLow=lowExpression();
-				for(String x:tempLow) {
-					temp.add(x);
-				};
-				temp.add(")");*/
 				break;
 			}
 			case "MINUS":{
 				match("MINUS");
-				t.operator="MINUS";
+				t.operator="minus";
 				t.sub2=lowExpression();
-				/*temp.add("minus");temp.add("(");
-				for(String x:tempHigh) {
-					temp.add(x);
-				};
-				Queue<String> tempLow=lowExpression();
-				for(String x:tempLow) {
-					temp.add(x);
-				};
-				temp.add(")");*/
 				break;
 				}
 			}			
@@ -255,25 +229,15 @@ public class Parser {
 		if (token.tokenType.equals("MULTIPLE")||token.tokenType.equals("DIVIDE")) {
 			switch(token.tokenType) {
 			case "MULTIPLE":{
-				t.operator="MULTIPLE";
+				t.operator="multiple";
 				match("MULTIPLE");
 				t.sub2=highExpression();
-				/*temp.add("multiple");temp.add("(");temp.add(s);
-				for(String x:highExpression()) {
-					temp.add(x);
-				};
-				temp.add(")");*/
 				break;
 			}
 			case "DIVIDE":{
-				t.operator="DIVIDE";
+				t.operator="divide";
 				match("DIVIDE");
 				t.sub2=highExpression();
-				/*temp.add("divide");temp.add("(");temp.add(s);
-				for(String x:highExpression()) {
-					temp.add(x);
-				};
-				temp.add(")");break;*/
 			}
 			}			
 		}else {
@@ -282,16 +246,18 @@ public class Parser {
 		return t;
 	}
 	
-	public static AST number() {		
+	public static AST number() {
 		String value=token.value;	
-		AST t=new AST(value);
+		AST t=new AST("number");
+		t.sub1=new AST(value);
 		match("NUMBER");
 		return t;
 	}
 	
 	public static AST identifier() {
 		String value=token.value;
-		AST t=new AST(value);
+		AST t=new AST("identifier");
+		t.sub1=new AST(value);
 		match("IDENTIFIER");
 		return t;
 	}
@@ -310,19 +276,6 @@ public class Parser {
 		else token=null;
 	}
 	
-	public static void printTree() {
-		for (String x:tree) {
-			if(true) {
-				System.out.print(x+" ");
-			}
-			if(false) {
-				if(!x.equals("(")&&!x.equals(")")) {
-					System.out.println(x+" ");
-				}
-			}
-			
-		}
-	}
 	public static void printAST() {
 		printAST(ast);
 	}
