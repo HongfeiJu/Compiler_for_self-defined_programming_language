@@ -1,0 +1,11 @@
+var factor;
+factor:=5;
+var sum;
+sum:=1;
+while (factor>0){
+sum:=sum*factor;
+factor:=factor-1;
+}
+print sum;
+
+
