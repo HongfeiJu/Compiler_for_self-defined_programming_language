@@ -57,40 +57,40 @@ public class Interpreter {
 				int valueLeft = 0;
 				int valueRight = 0;
 				
-				if (hm.containsKey(splited[3])) {
-					valueLeft = hm.get(splited[3]);
+				if (hm.containsKey(splited[2])) {
+					valueLeft = hm.get(splited[2]);
 				} else {
 					try {
-						valueLeft = Integer.parseInt(splited[3]);
+						valueLeft = Integer.parseInt(splited[2]);
 					} catch (Exception ex) {
 						valueLeft = 0;
-						hm.put(splited[3], 0); // Is it possible?
+						hm.put(splited[2], 0); // Is it possible?
 					}
 				}
-				if (hm.containsKey(splited[5])) {
-					valueRight = hm.get(splited[5]);
+				if (hm.containsKey(splited[4])) {
+					valueRight = hm.get(splited[4]);
 				} else {
 					try {
-						valueRight = Integer.parseInt(splited[5]);
+						valueRight = Integer.parseInt(splited[4]);
 					} catch (Exception ex) {
 						valueRight = 0;
-						hm.put(splited[5], 0); // Is it possible?
+						hm.put(splited[4], 0); // Is it possible?
 					}
 				}
 							
 //				System.out.println("operator: " + splited[4]);
 				
-				if (splited[4].equals("+")) {
-					hm.put(splited[1], valueLeft + valueRight);
+				if (splited[3].equals("+")) {
+					hm.put(splited[0], valueLeft + valueRight);
 				}
-				else if (splited[4].equals("-")) {
-					hm.put(splited[1], valueLeft - valueRight);
+				else if (splited[3].equals("-")) {
+					hm.put(splited[0], valueLeft - valueRight);
 				}
-				else if (splited[4].equals("*")) {
-					hm.put(splited[1], valueLeft * valueRight);
+				else if (splited[3].equals("*")) {
+					hm.put(splited[0], valueLeft * valueRight);
 				}
-				else if (splited[4].equals("/")) {
-					hm.put(splited[1], valueLeft / valueRight);
+				else if (splited[3].equals("/")) {
+					hm.put(splited[0], valueLeft / valueRight);
 				}
 				else {
 					System.out.println("line: " + line + ", somthing wrong!");
@@ -100,18 +100,18 @@ public class Interpreter {
 			case 2:
 				int value = 0;
 				
-				if (!hm.containsKey(splited[1])) {
-					hm.put(splited[1], 0);
+				if (!hm.containsKey(splited[0])) {
+					hm.put(splited[0], 0);
 				}
 //				if (!hm.containsKey(splited[3])) {
 //					hm.put(splited[3], 0); // Is it possible?
 //				}
-				if (hm.containsKey(splited[3])) {
-					value = hm.get(splited[3]);
-					hm.put(splited[1], value);
+				if (hm.containsKey(splited[2])) {
+					value = hm.get(splited[2]);
+					hm.put(splited[0], value);
 				} else {
-					value = Integer.parseInt(splited[3]);
-					hm.put(splited[1], value);
+					value = Integer.parseInt(splited[2]);
+					hm.put(splited[0], value);
 				}
 				
 				break;
@@ -119,26 +119,26 @@ public class Interpreter {
 				int conditionLeft = 0;
 				int conditionRight = 0;
 				
-				if (hm.containsKey(splited[2])) {
-					conditionLeft = hm.get(splited[2]);
+				if (hm.containsKey(splited[1])) {
+					conditionLeft = hm.get(splited[1]);
 				} else {
 					try {
-						conditionLeft = Integer.parseInt(splited[2]);
+						conditionLeft = Integer.parseInt(splited[1]);
 					} catch (Exception ex) {
 						System.out.println("No declaration!");
 					}
 				}
-				if (hm.containsKey(splited[4])) {
-					conditionRight = hm.get(splited[4]);
+				if (hm.containsKey(splited[3])) {
+					conditionRight = hm.get(splited[3]);
 				} else {
 					try {
-						conditionRight = Integer.parseInt(splited[4]);
+						conditionRight = Integer.parseInt(splited[3]);
 					} catch (Exception ex) {
 						System.out.println("No declaration!");
 					}
 				}
 				
-				if (splited[3].equals(">=")) {
+				if (splited[2].equals(">=")) {
 					if (conditionLeft >= conditionRight) {
 						String targetStr = splited[6] + ":";
 						int k = 0;
