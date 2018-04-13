@@ -18,7 +18,7 @@ public class Interpreter {
 		String[] strstr = new String[100];
 		int i = 0;
 		while ((str = br.readLine()) != null) {
-			System.out.println(str);
+//			System.out.println(str);
 			strstr[i] = str;
 			i += 1;
 		}
@@ -58,7 +58,7 @@ public class Interpreter {
 				type = 5; // Assignment
 			}
 			
-			System.out.println("line: " + line + "+1 , type: " + type);
+//			System.out.println("line: " + line + "+1 , type: " + type);
 			
 			switch (type) {			
 			case 1: // M1 := M1 * M2
@@ -240,8 +240,8 @@ public class Interpreter {
 				
 				break;
 			case 5: // L0E:
-				System.out.println(splited[0]);
-				System.out.println("empty line!");
+//				System.out.println(splited[0]);
+//				System.out.println("empty line!");
 				
 				break;
 			case 6: // OUT M0
@@ -255,19 +255,16 @@ public class Interpreter {
 				break;
 			}
 			
-			System.out.println("  HashMap Temporary Content:");
-			for (Map.Entry<String, Integer> m:hm.entrySet()) {
-				System.out.println("  " + m.getKey() + ": " + m.getValue());
-			}
+//			Syste/
 			
 			line += 1;
 			type = 0;
 		}
 		
-		System.out.println("\nHashMap Final Content:");
-		for (Map.Entry<String, Integer> m:hm.entrySet()) {
-			System.out.println(m.getKey() + ": " + m.getValue());
-		}
+//		System.out.println("\nHashMap Final Content:");
+//		for (Map.Entry<String, Integer> m:hm.entrySet()) {
+//			System.out.println(m.getKey() + ": " + m.getValue());
+//		}
 	}
 
 }
