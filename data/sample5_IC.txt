@@ -23,4 +23,4 @@ M9 := M0 + M8
 M0 := M9
 goto L0S
 L0E: 
-OUT M10
+OUT M0

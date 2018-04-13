@@ -14,5 +14,5 @@ print two;
 }
 num:=num+1;
 }
-print sum;
+print num;
 
