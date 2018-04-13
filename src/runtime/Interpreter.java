@@ -11,7 +11,7 @@ public class Interpreter {
 	}
 
 	public static void main(String[] args) throws IOException {
-		File file = new File("/Users/david/Desktop/ICSample.txt");
+		File file = new File("/Users/david/Desktop/Sample1_IC.txt");
 		BufferedReader br = new BufferedReader(new FileReader(file));
 		
 		String str;
@@ -148,7 +148,7 @@ public class Interpreter {
 				
 				if (splited[2].equals(">=")) {
 					if (conditionLeft < conditionRight) {
-						String targetStr = splited[5] + ":";
+						String targetStr = splited[5];
 						int k = 0;
 						while (strstr[k] != null) {
 							if (strstr[k].indexOf(targetStr) == 0) {
@@ -160,7 +160,7 @@ public class Interpreter {
 					}
 				} else if (splited[2].equals("<=")) {
 					if (conditionLeft > conditionRight) {
-						String targetStr = splited[5] + ":";
+						String targetStr = splited[5];
 						int k = 0;
 						while (strstr[k] != null) {
 							if (strstr[k].indexOf(targetStr) == 0) {
@@ -172,7 +172,7 @@ public class Interpreter {
 					}
 				} else if (splited[2].equals(">")) {
 					if (conditionLeft <= conditionRight) {
-						String targetStr = splited[5] + ":";
+						String targetStr = splited[5];
 						int k = 0;
 						while (strstr[k] != null) {
 							if (strstr[k].indexOf(targetStr) == 0) {
@@ -184,7 +184,7 @@ public class Interpreter {
 					}
 				} else if (splited[2].equals("<")) {
 					if (conditionLeft >= conditionRight) {
-						String targetStr = splited[5] + ":";
+						String targetStr = splited[5];
 						int k = 0;
 						while (strstr[k] != null) {
 							if (strstr[k].indexOf(targetStr) == 0) {
@@ -196,7 +196,7 @@ public class Interpreter {
 					}
 				} else if (splited[2].equals("==")) {
 					if (conditionLeft != conditionRight) {
-						String targetStr = splited[5] + ":";
+						String targetStr = splited[5];
 						int k = 0;
 						while (strstr[k] != null) {
 							if (strstr[k].indexOf(targetStr) == 0) {
@@ -208,7 +208,7 @@ public class Interpreter {
 					}
 				} else if (splited[2].equals("!=")) {
 					if (conditionLeft == conditionRight) {
-						String targetStr = splited[5] + ":";
+						String targetStr = splited[5];
 						int k = 0;
 						while (strstr[k] != null) {
 							if (strstr[k].indexOf(targetStr) == 0) {
