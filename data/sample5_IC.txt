@@ -8,16 +8,19 @@ M4 := 0
 M5 := 1
 M4 := M5
 L0S: 
-M7 := 10
-ifNot M6 <= M7 goto L0E: 
-M8 := 5
-ifNot M0 > M8 goto L1F
+M6 := 10
+ifNot M0 <= M6 goto L0E: 
+M7 := 5
+ifNot M0 > M7 goto L1F
 OUT M2
 goto L1E
 L1F: 
 OUT M4
 goto L1E
 L1E: 
+M8 := 1
+M9 := M0 + M8
+M0 := M9
 goto L0S
 L0E: 
-OUT M9
+OUT M10
