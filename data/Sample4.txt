@@ -1,0 +1,10 @@
+var sum;
+sum:=0;
+var count;
+count:=0;
+while(count<=10){
+sum:=sum+count;
+count:=count+1;
+}
+print sum;
+

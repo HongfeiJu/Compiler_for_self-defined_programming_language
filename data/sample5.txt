@@ -1,0 +1,13 @@
+var num;
+num:=0;
+var one;
+one:=0;
+var two;
+two:=1;
+while(count<=10){
+if(num>5)correct{
+print one;}wrong{
+print two;}
+}
+print sum;
+

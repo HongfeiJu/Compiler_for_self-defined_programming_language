@@ -14,4 +14,4 @@ M7 := M0 - M6
 M0 := M7
 goto L0S
 L0E: 
-OUT M8
+OUT M2

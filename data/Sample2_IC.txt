@@ -1,0 +1,13 @@
+M0 := 0
+M1 := 86
+M0 := M1
+M2 := 0
+M3 := 10
+M2 := M3
+ifNot M0 > M2 goto L0F
+OUT M0
+goto L0E
+L0F: 
+OUT M2
+goto L0E
+L0E: 
