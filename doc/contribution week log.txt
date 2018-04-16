@@ -19,7 +19,7 @@ Zachary Wang:
 
 Hongfei Ju：
 1. Design the primitive type (boolean and int) and operator
-2. Design the parsing technique (bottom-up) and needed data structure (symbaol table) [prototype design,simple descripton)
+2. Design the parsing technique (bottom-up) and needed data structure (symbaol table) [prototype design,simple descripton]
 3. First version grammer [includes all the data types and constructs that are required, need further revision from other group memeber] 
 
 Ruihao Zhou:
@@ -36,6 +36,9 @@ Zachary Wang:
 
 
 Hongfei Ju：
+1. Implement lexer and parser with java
+2. Implement the AST for storing parse tree
+3. Implement intermediate code generator [initial version]
 
 
 Ruihao Zhou:
@@ -46,9 +49,12 @@ Ruihao Zhou:
 
 We had a group meeting at April 5, conduct the Milestone2 document and discuss the compiler design. 
 ------------------------------------------------------
-Future Plan: (April 9 - April 28)
+Week 3: (April 9 - April 15)
 
-Target: 
+Hongfei Ju:
+1. Change the output format of intermediate code
+2. Fix the bugs in intermediate code generator
+3. Create test codes for initial testing
 
 
 
