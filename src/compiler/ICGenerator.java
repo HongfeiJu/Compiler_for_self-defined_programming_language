@@ -20,18 +20,18 @@ public class ICGenerator {
 	}
 	
 	public static void hProgram(AST t) {
-		System.out.println("processing program "+t.operator);
+		//System.out.println("processing program "+t.operator);
 		hStatementList(t.sub1);		
 	}
 	
 	public static void hStatementList(AST t) {
-		System.out.println("processing hStatementList "+t.operator);
+		//System.out.println("processing hStatementList "+t.operator);
 		hStatement(t.sub1);
 		if (t.sub2!=null) hStatementList(t.sub2);
 	}
 	
 	public static void hStatement(AST t) {
-		System.out.println("processing hStatement "+t.operator);
+		//System.out.println("processing hStatement "+t.operator);
 		switch(t.sub1.operator){
 		case "declare": hDeclare(t.sub1,ic);break;
 		case "assignment": hAssignment(t.sub1,ic);break;
@@ -42,7 +42,7 @@ public class ICGenerator {
 	}
 	
 	public static void hDeclare(AST t,Queue<String> s) {
-		System.out.println("processing hDeclare "+t.operator);
+		//System.out.println("processing hDeclare "+t.operator);
 		String id=hIdentifier(t.sub1,s);
 		s.add(id);
 		s.add(" :=");
@@ -51,7 +51,7 @@ public class ICGenerator {
 	}
 	
 	public static void hAssignment(AST t,Queue<String> s) {
-		System.out.println("processing hAssignment "+t.operator);
+		//System.out.println("processing hAssignment "+t.operator);
 		String var1=hIdentifier(t.sub1,s);
 		String var2=hLExpression(t.sub2,s);
 
@@ -62,7 +62,7 @@ public class ICGenerator {
 	}
 	
 	public static void hIf(AST t, Queue<String> s) {
-		System.out.println("processing hIf "+t.operator);
+		//System.out.println("processing hIf "+t.operator);
 		int localLC=labelCounter++;
 		hBExpression(t.sub1,s);
 		s.add("L"+localLC+"F");
@@ -76,7 +76,7 @@ public class ICGenerator {
 	}
 	
 	public static void hWhile(AST t, Queue<String> s) {
-		System.out.println("processing hWhile "+t.operator);
+		//System.out.println("processing hWhile "+t.operator);
 		int localLC=labelCounter++;
 		s.add("L"+localLC+"S: ");s.add("\r\n");
 		hBExpression(t.sub1,s);
@@ -87,7 +87,7 @@ public class ICGenerator {
 	}
 	
 	public static void hBExpression(AST t, Queue<String> s) {
-		System.out.println("processing hBExpression"+t.operator);
+		//System.out.println("processing hBExpression"+t.operator);
 		String var1=hLExpression(t.sub1,s);
 		String var2=hLExpression(t.sub2,s);
 		String relation="";
@@ -111,7 +111,7 @@ public class ICGenerator {
 	
 	
 	public static String hLExpression(AST t,Queue<String> s) {		
-		System.out.println("processing hLExpression "+t.operator);
+		//System.out.println("processing hLExpression "+t.operator);
 		if (t.sub2!=null) {
 			String var1=hHExpression(t.sub1,ic);
 			String var2=hLExpression(t.sub2,ic);
@@ -131,7 +131,7 @@ public class ICGenerator {
 	}
 	
 	public static String hHExpression(AST t,Queue<String> s) {
-		System.out.println("processing hHExpression "+t.operator);
+		//System.out.println("processing hHExpression "+t.operator);
 		if(t.operator.equals("multiple")) {
 			String var1="";
 			if(t.sub1.operator.equals("identifier")) var1=hIdentifier(t.sub1,ic);
@@ -164,7 +164,7 @@ public class ICGenerator {
 	}
 	
 	public static String hIdentifier(AST t,Queue<String> s) {
-		System.out.println("processing hIdentifier "+t.operator);
+		//System.out.println("processing hIdentifier "+t.operator);
 		int loc=0;
 		if(!varList.containsKey(t.sub1.operator)) {
 			loc=mLocation;mLocation++;
@@ -176,7 +176,7 @@ public class ICGenerator {
 	}
 	
 	public static String hNumber(AST t, Queue<String> s) {
-		System.out.println("processing hNumber "+t.operator);
+		//System.out.println("processing hNumber "+t.operator);
 		String location="M"+mLocation; mLocation++;
 		s.add(location);
 		s.add(" :=");
@@ -186,8 +186,8 @@ public class ICGenerator {
 	}
 	
 	public static void hPrint(AST t) {
-		System.out.println("processing hPrint "+t.operator);
-		String var=hIdentifier(t,ic);
+		//System.out.println("processing hPrint "+t.operator);
+		String var=hIdentifier(t.sub1,ic);
 		ic.add("OUT");
 		ic.add(" "+var);
 		ic.add("\r\n");
@@ -195,8 +195,12 @@ public class ICGenerator {
 	
 	
 	public static void main(String[] agrs) throws IOException {
-		String filename="C:/Users/Hongfei/Desktop/codes.txt";
-		Queue<Lexcer.Token> tokenList=new LinkedList<Lexcer.Token>();		
+		
+		String filename="codes.L0";
+		int index=filename.lastIndexOf(".");
+		String surname=filename.substring(0, index);
+		System.out.println(surname);
+		/*Queue<Lexcer.Token> tokenList=new LinkedList<Lexcer.Token>();		
 		tokenList.add(new Lexcer.Token("VAR","var"));		
 		tokenList.add(new Lexcer.Token("IDENTIFIER","x"));
 		tokenList.add(new Lexcer.Token("SEMICOLON",";"));
@@ -205,11 +209,11 @@ public class ICGenerator {
 		tokenList.add(new Lexcer.Token("IDENTIFIER","x"));
 		tokenList.add(new Lexcer.Token("PLUS","+"));
 		tokenList.add(new Lexcer.Token("NUMBER","5"));
-		tokenList.add(new Lexcer.Token("SEMICOLON",";"));
+		tokenList.add(new Lexcer.Token("SEMICOLON",";"));*/
 		
 		Parser parser=new Parser(filename);
 		ICGenerator generator=new ICGenerator(parser.ast);
-		File file=new File("C:/Users/Hongfei/Desktop/IC.txt");
+		File file=new File(surname+"_IC.txt");
 		FileWriter writer=new FileWriter(file,false);
 		for (String s:generator.ic) {
 			writer.write(s);
