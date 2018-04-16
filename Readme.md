@@ -12,11 +12,9 @@ Zachary Wang
 
 Hongfei Ju, Ruihao Zhou(Lexical Analysis)
 
-Hongfei ju, Zachary Wang(Syntax Analysis)
+Parser & Intermediate Code Generator: Hongfei Ju
 
-All members(Intermediate Code Generating) 
-
-All member(Executing)
+Interpreter: Zachary Wang
 
 
 ## System Requirement
@@ -49,7 +47,20 @@ The presentation video about this project is [here]().
 
 ## Language Name
 
-**L24** will be our language name since we are team **24**. 
+**L0** will be our language name.
+
+## Language design
+
+Primitive Type: 
+
+This programming language includes two primitive types: boolean values and int numeric value. 
+
+Operation:
+
+For boolean type data, the corresponding operators include “equal”, “larger than”, “no less than”, “less than”, no larger than”, “not equal”. For int numeric type data, the corresponding operators include “plus”, “minus”, “multiply”, “divide”.
+
+This programming language includes three statements: assignment to associate a value with a variable, if-then-else statement to make decisions, and while statement for iterative execution.
+
 
 
 ## Grammar Rule
@@ -67,7 +78,7 @@ boolean_expression  :  low_expression  '=='  low_expression  |  low_expression  
 boolean_val  :  'true'  |  'false'  ;
 low_expression  :  high_expression  '+'  low_expression  |  high_expression  '-'  low_expression  |  high_expression  ;
 high_expression  :  item  '*'  high_expression  |  item  '/'  high_expression  |  item  ;
-item  :  ID | NUMBER  ;
+item  :  '(' expr ')' | ID | NUMBER  ;
 ID  :  [a-z|A-Z]+  ;
 NUMBER  :  [0-9]+  ;
 WS :  [ \t\r\n]+ -> skip ;
