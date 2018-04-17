@@ -15,6 +15,7 @@ Target: 1. preliminary designing of the programming language
 
 
 Zachary Wang:
+1. Organize the data structure in the language
     
 
 Hongfei Ju：
@@ -33,6 +34,7 @@ Week 2: (April 2 - April 8)
 Target: 1. revise and complete the design of the programming language  2. prepare and submite milestone 2 document.
 
 Zachary Wang:
+1. Implement an interpreter
 
 
 Hongfei Ju：
@@ -50,6 +52,11 @@ Ruihao Zhou:
 We had a group meeting at April 5, conduct the Milestone2 document and discuss the compiler design. 
 ------------------------------------------------------
 Week 3: (April 9 - April 15)
+
+Zachary Wang:
+1. Fix bugs in the interpreter
+2. Work on test cases for the interpreter
+
 
 Hongfei Ju:
 1. Change the output format of intermediate code
