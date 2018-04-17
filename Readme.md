@@ -47,7 +47,7 @@ The presentation video about this project is [here]().
 
 ## Language Name
 
-**L0** will be our language name.
+**L24** will be our language name.
 
 ## Language design
 
