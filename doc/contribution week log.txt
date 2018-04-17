@@ -63,5 +63,12 @@ Hongfei Ju:
 2. Fix the bugs in intermediate code generator
 3. Create test codes for initial testing
 
+Ruihao Zhou:
 
+------------------------------------------------------
+Week 3: (April 16 - April 22)
+
+Hongfei Ju:
+1. Prepare the slides.
+2. record the video.
 
