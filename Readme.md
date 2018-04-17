@@ -10,21 +10,21 @@ Zachary Wang
 
 **Development Plan**
 
-Hongfei Ju, Ruihao Zhou(Lexical Analysis)
+Lexical Analysis: Hongfei Ju, Ruihao Zhou
 
-Hongfei ju, Zachary Wang(Syntax Analysis)
+Syntax Analysis: Hongfei ju, Zachary Wang
 
-All members(Intermediate Code Generating) 
+Intermediate Code Generating: Hongfei Ju
 
-All member(Executing)
+Interpreter: Zachary Wang
 
 
 ## System Requirement
 
 **Platform**
 
-    MacOS(native)
-    Windows(Cygwin required)
+    MacOS
+    Windows
 
 
 ## Install Directions
@@ -49,7 +49,7 @@ The presentation video about this project is [here]().
 
 ## Language Name
 
-**L24** will be our language name since we are team **24**. 
+**L0** will be our language name. 
 
 
 ## Grammar Rule
