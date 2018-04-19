@@ -47,7 +47,8 @@ The presentation video about this project is [here](https://www.youtube.com/).
 
 ## Language Name
 
-**L24** will be our language name.
+**L0** will be our language name.
+Zero is the first natural number, we see L0 as a good start of our learning in compiling techniques.
 
 ## Language design
 
