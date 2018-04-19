@@ -93,6 +93,8 @@ WS :  [ \t\r\n]+ -> skip ;
 
 * Parsing Process(Technique)
 
+   ![Parsing Process](https://github.com/HongfeiJu/SER502-Spring2018-Team-24/blob/master/doc/Parsing%20process.png)
+		
 
 
 * Example Program in High Level Language
