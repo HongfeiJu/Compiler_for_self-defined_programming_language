@@ -64,6 +64,12 @@ Hongfei Ju:
 3. Create test codes for initial testing
 
 Ruihao Zhou:
+1. Learn how to use Github and Study on the prerequisites for Compiler knowledge 
+2. Try to implement lexical and parser analysis by using python
+3. Working on the related document for Milestone 2
+   3.1 Edit READ.ME
+   3.2 In charge of contribution.txt
+4. Provide insight into Compiler design
 
 ------------------------------------------------------
 Week 3: (April 16 - April 22)
