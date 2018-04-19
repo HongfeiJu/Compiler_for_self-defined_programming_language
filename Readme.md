@@ -113,7 +113,6 @@ WS :  [ \t\r\n]+ -> skip ;
         count:=count+1;
         }
         print sum;
-	
 	```
 
 	
