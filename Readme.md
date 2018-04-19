@@ -103,17 +103,22 @@ WS :  [ \t\r\n]+ -> skip ;
 	
      Example: counting the sum of all the numbers between 0 and 10 using our language L0.
 
-     、、、
-     var sum;
-     sum:=0;
-     var count;
-     count:=0;
-     while(count<=10){
-     sum:=sum+count;
-     count:=count+1;
-     }
-     print sum;  
-      、、、
+     	```
+	var i;
+	var evenSum;
+	var oddSum;
+	evenSum is 0;
+	oddSum is 0;
+	for i from 1 to 100 step 1 {
+	    if ((i % 2) = 0) then {
+	        evenSum is evenSum + i;
+	    } else {
+	        oddSum is oddSum + i;
+	    };
+	};
+	print evenSum;
+	print oddSum;
+	```
 	
 
 	
