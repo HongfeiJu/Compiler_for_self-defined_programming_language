@@ -60,7 +60,9 @@ Operation:
 
 For boolean type data, the corresponding operators include “equal”, “larger than”, “no less than”, “less than”, no larger than”, “not equal”. For int numeric type data, the corresponding operators include “plus”, “minus”, “multiply”, “divide”.
 
-This programming language includes three statements: assignment to associate a value with a variable, if-then-else statement to make decisions, and while statement for iterative execution.
+Statements: 
+
+assignment to associate a value with a variable, if-then-else statement to make decisions, and while statement for iterative execution.
 
 
 
