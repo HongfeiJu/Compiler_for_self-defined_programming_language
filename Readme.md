@@ -102,7 +102,18 @@ WS :  [ \t\r\n]+ -> skip ;
      For more example, please see [here](https://github.com/HongfeiJu/SER502-Spring2018-Team-24/tree/master/data)
 	
      Example: counting the sum of all the numbers between 0 and 10 using our language L0.
-	
+
+     、、、
+     var sum;
+     sum:=0;
+     var count;
+     count:=0;
+     while(count<=10){
+     sum:=sum+count;
+     count:=count+1;
+     }
+     print sum;  
+      、、、
 	
 
 	
