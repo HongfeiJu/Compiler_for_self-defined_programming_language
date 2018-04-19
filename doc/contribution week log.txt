@@ -78,3 +78,9 @@ Hongfei Ju:
 1. Prepare the slides.
 2. record the video.
 
+Ruihao Zhou:
+1. Edit ReadME
+2. Record the video
+3. Write some sample program to test
+
+
