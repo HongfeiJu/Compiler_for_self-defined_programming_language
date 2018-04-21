@@ -10,7 +10,7 @@ Zachary Wang
 
 **Development Plan**
 
-Hongfei Ju, Ruihao Zhou(Lexical Analysis)
+Lexical Analysis: Hongfei Ju, Ruihao Zhou
 
 Parser & Intermediate Code Generator: Hongfei Ju
 
@@ -22,7 +22,7 @@ Interpreter: Zachary Wang
 **Platform**
 
     MacOS(native)
-    Windows(Cygwin required)
+    Windows(java runtime environment 1.8.0)
 
 
 ## Install Directions
