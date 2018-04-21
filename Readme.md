@@ -22,10 +22,10 @@ Interpreter: Zachary Wang
 ## System Requirement
 
 **Platform**
-
+```
     MacOS
     Windows: java runtime environment 1.8.0
-
+```
 
 ## Install Directions
 
