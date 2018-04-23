@@ -1,12 +1,12 @@
-var a;
-a:=10;
-var b;
-b:=5;
-if(a>b)
+var factorOne;
+factorOne:=86;
+var factorTwo;
+factorTwo:=10;
+if(factorOne>factorTwo)
 correct{
-print a;
+print factorOne;
 }
 wrong{
-print b;
+print factorTwo;
 }
 
