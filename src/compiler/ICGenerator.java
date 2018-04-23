@@ -1,3 +1,9 @@
+/*
+Author: Hongfei Ju
+Purpose: generating intermediate code
+Version: 1.0
+Date: 4/23/2018
+*/
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
