@@ -11,7 +11,8 @@ public class Interpreter {
 	}
 
 	public static void main(String[] args) throws IOException {
-		File file = new File("/Users/david/Desktop/Sample5_IC.txt");
+//		File file = new File("/Users/david/Desktop/SER502/Sample5_IC.txt");
+		File file = new File("/Users/david/Desktop/SER502/" + args[0]);
 		BufferedReader br = new BufferedReader(new FileReader(file));
 		
 		String str;
@@ -55,7 +56,7 @@ public class Interpreter {
 				type = 2; // Assignment
 			}
 			if (type != 1 && type != 3 && type != 4 && splited.length == 1) {
-				type = 5; // Assignment
+				type = 5; // L0S:
 			}
 			
 //			System.out.println("line: " + line + "+1 , type: " + type);
