@@ -1,3 +1,10 @@
+/*
+Author: Hongfei Ju, Ruihao Zhou
+Purpose: generating token list
+Version: 1.0
+Date: 4/23/2018
+*/
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
