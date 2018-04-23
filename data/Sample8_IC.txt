@@ -1,0 +1,13 @@
+var a;
+a:=10;
+var b;
+b:=5;
+var c;
+if(a>b)
+correct{
+c:= 1;
+}
+wrong{
+c:= 0;
+}
+print c;
