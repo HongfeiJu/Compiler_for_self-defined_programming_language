@@ -5,10 +5,9 @@ b:=5;
 var c;
 if(a>b)
 correct{
-c:= true
+c:= 1;
 }
 wrong{
-c:= false
+c:= 0;
 }
 print c;
-
