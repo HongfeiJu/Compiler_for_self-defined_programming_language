@@ -1,3 +1,10 @@
+/*
+Author: Hongfei Ju, Zachary Wang
+Purpose: checking syntax, generating parsing tree
+Version: 1.0
+Date: 4/23/2018
+*/
+
 import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.Queue;
