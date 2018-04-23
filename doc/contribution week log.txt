@@ -1,6 +1,7 @@
 ﻿Tracking details on:
 https://github.com/HongfeiJu/SER502-Spring2018-Team-24
 ------------------------------------------------------
+
 Week 0: (March 22-23)
 
 Target: 1. Meeting and knowing each other.  2. Building a Github repo "SER502-Spring2018-Team<#24>" for the project.
@@ -9,14 +10,13 @@ Hongfei Ju：
 1. Setting and editing the Github repository
 
 ------------------------------------------------------
+
 Week 1: (March 26 - April 1) 
 
 Target: 1. preliminary designing of the programming language
 
-
 Zachary Wang:
-1. Organize the data structure in the language
-    
+1. Organize the data structure in the language    
 
 Hongfei Ju：
 1. Design the primitive type (boolean and int) and operator
@@ -25,10 +25,10 @@ Hongfei Ju：
 
 Ruihao Zhou:
 1. Learn how to use Github 
-2. Studying on the prerequisites about Compiler knowledge 
+2. Studying on the prerequisites about Compiler knowledge
 
-We had a group meeting at March 29, discuss Parsing tree, intermediate code and environment.
 ------------------------------------------------------
+
 Week 2: (April 2 - April 8) 
 
 Target: 1. revise and complete the design of the programming language  2. prepare and submite milestone 2 document.
@@ -36,12 +36,10 @@ Target: 1. revise and complete the design of the programming language  2. prepar
 Zachary Wang:
 1. Implement an interpreter
 
-
 Hongfei Ju：
 1. Implement lexer and parser with java
 2. Implement the AST for storing parse tree
 3. Implement intermediate code generator [initial version]
-
 
 Ruihao Zhou:
 1. Working on Document for Milestone 2
@@ -49,14 +47,13 @@ Ruihao Zhou:
 3. keeping the contribution text file in Github
 4. Eidt README.md
 
-We had a group meeting at April 5, conduct the Milestone2 document and discuss the compiler design. 
 ------------------------------------------------------
+
 Week 3: (April 9 - April 15)
 
 Zachary Wang:
 1. Fix bugs in the interpreter
 2. Work on test cases for the interpreter
-
 
 Hongfei Ju:
 1. Change the output format of intermediate code
@@ -72,7 +69,8 @@ Ruihao Zhou:
 4. Provide insight into Compiler design
 
 ------------------------------------------------------
-Week 3: (April 16 - April 22)
+
+Week 4: (April 16 - April 22)
 
 Hongfei Ju:
 1. Prepare the slides.
@@ -83,4 +81,9 @@ Ruihao Zhou:
 2. Record the video
 3. Write some sample program to test
 
+------------------------------------------------------
 
+Week 5: (April 13 - April 28)
+
+Hongfei Ju:
+1. Preparation for the final submission.
