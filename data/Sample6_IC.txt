@@ -1,0 +1,27 @@
+M0 := 0
+M1 := 1
+M0 := M1
+M2 := 0
+M3 := 1
+M2 := M3
+L0S: 
+M4 := 5
+ifNot M0 < M4 goto L0E: 
+M5 := 3
+ifNot M0 < M5 goto L1F
+M6 := 1
+M7 := M2 + M6
+M2 := M7
+goto L1E
+L1F: 
+M8 := 3
+M9 := M2 + M8
+M2 := M9
+goto L1E
+L1E: 
+M10 := 1
+M11 := M0 + M10
+M0 := M11
+goto L0S
+L0E: 
+OUT M2
