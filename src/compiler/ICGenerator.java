@@ -202,20 +202,10 @@ public class ICGenerator {
 	
 	public static void main(String[] agrs) throws IOException {
 		
-		String filename="codes.L0";
+		String filename=agrs[0];
 		int index=filename.lastIndexOf(".");
 		String surname=filename.substring(0, index);
-		System.out.println(surname);
-		/*Queue<Lexcer.Token> tokenList=new LinkedList<Lexcer.Token>();		
-		tokenList.add(new Lexcer.Token("VAR","var"));		
-		tokenList.add(new Lexcer.Token("IDENTIFIER","x"));
-		tokenList.add(new Lexcer.Token("SEMICOLON",";"));
-		tokenList.add(new Lexcer.Token("IDENTIFIER","x"));
-		tokenList.add(new Lexcer.Token("ASSIGNMENT",":="));
-		tokenList.add(new Lexcer.Token("IDENTIFIER","x"));
-		tokenList.add(new Lexcer.Token("PLUS","+"));
-		tokenList.add(new Lexcer.Token("NUMBER","5"));
-		tokenList.add(new Lexcer.Token("SEMICOLON",";"));*/
+		System.out.println(surname);	
 		
 		Parser parser=new Parser(filename);
 		ICGenerator generator=new ICGenerator(parser.ast);
