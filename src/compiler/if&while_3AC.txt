@@ -1,10 +1,0 @@
-void main() {int a;   a = 23;   if (a == 23)   a = 10;   elsea = 19;
-}main:    BeginFunc 24;    t0 = 23;    a = t0;    t1 = 23;    t2 = a == t1;    IfZ t2 Goto L0;    t3 = 10;    a = t3;    Goto L1;L0:    t4 = 19;    a = t4; 
-L1:    EndFunc;
-———————————————————
-void main() {int a; a = 0;   while (a < 10) {      Print(a % 2 == 0);      a = a + 1; } 
-}
-
-main:   BeginFunc 40;   t0 = 0;   a = t0;L0:   t1 = 10;   t2 = a < t1;   IfZ t2 Goto L1;   t3 = 2;   t4 = a % _t3;   t5 = 0;   t6 = t4 == t5;   PushParam t6;   LCall PrintBool;   PopParams 4;   t7 = 1;   t8 = a + t7;   a = t8;   Goto L0;L1:   EndFunc;
-——————————————————————
-
