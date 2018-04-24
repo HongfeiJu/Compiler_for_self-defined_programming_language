@@ -17,7 +17,7 @@
 In Command Prompt, run the following command:
 
 `java -jar Compiler.jar filename.L0`
-## output
+## Output
 1. token list
 
 2. syntax checking information
