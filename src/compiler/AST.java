@@ -1,5 +1,3 @@
-package Compiler;
-
 public class AST {
 	String operator;
 	AST sub1;

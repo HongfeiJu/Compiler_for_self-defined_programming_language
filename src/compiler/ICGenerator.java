@@ -1,5 +1,3 @@
-package Compiler;
-
 /*
 Author: Hongfei Ju
 Purpose: generating intermediate code

@@ -1,5 +1,3 @@
-package Compiler;
-
 /*
 Author: Hongfei Ju, Zachary Wang
 Purpose: checking syntax, generating parsing tree
