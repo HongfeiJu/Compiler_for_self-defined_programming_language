@@ -1,17 +1,17 @@
 var number;
 number:=1;
 var fibonacci;
-fibonacci:=1;
+fi:=1;
 while (number<5) {
 if(number<3)
 correct{
-fibonacci:=fibonacci+1;
+fi:=fi+1;
 }
 wrong{
-fibonacci:=fibonacci+3;
+fi:=fi+3;
 }
 number:=number+1;
 }
-print fibonacci;
+print fi;
 
 
