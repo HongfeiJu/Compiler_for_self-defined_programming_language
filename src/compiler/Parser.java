@@ -1,3 +1,5 @@
+package Compiler;
+
 /*
 Author: Hongfei Ju, Zachary Wang
 Purpose: checking syntax, generating parsing tree
@@ -11,13 +13,13 @@ import java.util.Queue;
 
 public class Parser {
 	private String filename;
-	private static Lexcer.Token token;
-	private static Queue<Lexcer.Token> tokenList=new LinkedList<Lexcer.Token>();
+	private static Lexer.Token token;
+	private static Queue<Lexer.Token> tokenList=new LinkedList<Lexer.Token>();
 	public static AST ast=new AST("program");
 	
 	public Parser(String s) throws FileNotFoundException {
 		filename=s;
-		Lexcer lexcer=new Lexcer(filename);
+		Lexer lexcer=new Lexer(filename);
 		lexcer.getCodes();
 		lexcer.getTokens();
 		lexcer.printTokens();
@@ -25,7 +27,7 @@ public class Parser {
 		program(ast);
 	}
 	
-	public Parser(Queue<Lexcer.Token> s) {
+	public Parser(Queue<Lexer.Token> s) {
 		tokenList=s;
 		program(ast);
 	}
@@ -316,18 +318,7 @@ public class Parser {
 	
 	
 	public static void main(String[] args) throws FileNotFoundException {
-		String filename="C:/Users/Hongfei/Desktop/codes.txt";
-		Queue<Lexcer.Token> tokenList=new LinkedList<Lexcer.Token>();		
-		tokenList.add(new Lexcer.Token("VAR","var"));		
-		tokenList.add(new Lexcer.Token("IDENTIFIER","x"));
-		tokenList.add(new Lexcer.Token("SEMICOLON",";"));
-		tokenList.add(new Lexcer.Token("IDENTIFIER","x"));
-		tokenList.add(new Lexcer.Token("ASSIGNMENT",":="));
-		tokenList.add(new Lexcer.Token("IDENTIFIER","x"));
-		tokenList.add(new Lexcer.Token("PLUS","+"));
-		tokenList.add(new Lexcer.Token("NUMBER","5"));
-		tokenList.add(new Lexcer.Token("SEMICOLON",";"));
-		
+		String filename="C:/Users/Hongfei/Desktop/codes.txt";		
 		Parser parser=new Parser(filename);
 		parser.printAST();
 		

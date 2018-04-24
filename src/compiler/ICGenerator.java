@@ -1,3 +1,5 @@
+package Compiler;
+
 /*
 Author: Hongfei Ju
 Purpose: generating intermediate code
@@ -201,7 +203,7 @@ public class ICGenerator {
 	
 	
 	public static void main(String[] agrs) throws IOException {
-		
+		//String filename="C:/Users/Hongfei/Desktop/codes.L0";
 		String filename=agrs[0];
 		int index=filename.lastIndexOf(".");
 		String surname=filename.substring(0, index);

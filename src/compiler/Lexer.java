@@ -1,10 +1,4 @@
-/*
-Author: Hongfei Ju, Ruihao Zhou
-Purpose: generating token list
-Version: 1.0
-Date: 4/23/2018
-*/
-
+package Compiler;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -12,18 +6,18 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class Lexcer {
+public class Lexer {
 	private static String filename;
 	private static String codes="";
 	private static Queue<Token> tokenList=new LinkedList<Token>(); 
 	
-	public Lexcer(String s) {
+	public Lexer(String s) {
 		filename=s;
 	}
 	
 	public static class Token{
-		private String tokenType;
-		private String value;
+		public String tokenType;
+		public String value;
 		public Token(String type, String val) {
 			tokenType=type;
 			value=val;
@@ -35,7 +29,9 @@ public class Lexcer {
 			currChar=codes.charAt(i);
 			if (currChar==' '||currChar=='\t'||currChar=='\r'||currChar=='\n') {
 				continue;
-			}else if (currChar=='('||currChar==')'||currChar=='{'||currChar=='}'||currChar==';') {
+				}
+			else if (currChar=='('||currChar==')'||currChar=='{'||currChar=='}'
+					||currChar==';') {
 				switch(currChar) {
 				case '(':tokenList.add(new Token("LPAREN", "("));break;
 				case ')':tokenList.add(new Token("RPAREN", ")"));break;
@@ -43,14 +39,17 @@ public class Lexcer {
 				case '}':tokenList.add(new Token("RCBRACKET", "}"));break;
 				case ';':tokenList.add(new Token("SEMICOLON", ";"));break;
 				}
-			}else if (currChar=='+'||currChar=='-'||currChar=='*'||currChar=='/') {
+				}
+			else if (currChar=='+'||currChar=='-'||currChar=='*'||currChar=='/') {
 				switch(currChar) {
 				case '+':tokenList.add(new Token("PLUS", "+"));break;
 				case '-':tokenList.add(new Token("MINUS", "-"));break;
 				case '*':tokenList.add(new Token("MULTIPLE", "*"));break;
 				case '/':tokenList.add(new Token("DIVIDE", "/"));break;
 				}
-			}else if ((currChar=='='||currChar=='<'||currChar=='>'||currChar=='!'||currChar==':')) {
+				}
+			else if ((currChar=='='||currChar=='<'||currChar=='>'||currChar=='!'
+					||currChar==':')) {
 				if (codes.charAt(i+1)=='=') {
 					i++;
 					switch(currChar) {
@@ -60,22 +59,23 @@ public class Lexcer {
 					case '!':tokenList.add(new Token("NOTEQUAL", "!="));break;
 					case ':':tokenList.add(new Token("ASSIGNMENT", ":="));break;
 					}
-				}else {
+					}
+				else {
 					switch(currChar) {					
 					case '<':tokenList.add(new Token("LESSTHAN", "<"));break;
 					case '>':tokenList.add(new Token("LARGERTHAN", ">"));break;
 					}
+					}		
 				}
-				
-				
-			}else if (Character.isDigit(currChar)) {
+			else if (Character.isDigit(currChar)) {
 				String num=Character.toString(currChar);
 				while(Character.isDigit(currChar=codes.charAt(++i))) {
 					num+=Character.toString(currChar);
 					}
 				i--;
 				tokenList.add(new Token("NUMBER",num));
-			}else if(Character.isAlphabetic(currChar)) {
+				}
+			else if(Character.isAlphabetic(currChar)) {
 				String word=Character.toString(currChar);
 				while(Character.isAlphabetic(currChar=codes.charAt(++i))) {
 					word+=Character.toString(currChar);
@@ -93,12 +93,16 @@ public class Lexcer {
 					case "true":tokenList.add(new Token("TRUE", "true"));break;
 					case "false":tokenList.add(new Token("FALSE", "false"));break;
 					}
-				}else {
+					}
+				else {
 					tokenList.add(new Token("IDENTIFIER",word));
 					}
-				}		
-			}
-			
+				}
+			else {
+				String word=Character.toString(currChar);
+				tokenList.add(new Token("IDENTIFIER",word));
+				}
+			}			
 		}
 		
 	public static void printTokens(){
@@ -115,10 +119,14 @@ public class Lexcer {
 		}		
 	}
 	
+	public static Queue<Token> getTokensString(){		
+		return tokenList;
+	}
+	
 	
 	public static void main(String[] args) throws FileNotFoundException {
-		String filename="C:/Users/Hongfei/Desktop/codes.txt";
-		Lexcer lexcer=new Lexcer(filename);
+		String filename="C:/Users/Hongfei/Desktop/codes.L0";
+		Lexer lexcer=new Lexer(filename);
 		lexcer.getCodes();
 		lexcer.getTokens();
 		lexcer.printTokens();
