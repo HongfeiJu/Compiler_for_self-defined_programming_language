@@ -36,7 +36,9 @@ Compiler: download executable file "Compiler.jar" from [here](https://github.com
 ## Build and Run Directions
 
 
+For the compiler, run the following command in Command Prompt, :
 
+`java -jar Compiler.jar filename.L0`
 
 
 
