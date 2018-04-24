@@ -117,6 +117,10 @@ count:=count+1;
 print sum;
 ```
   
-
+## Zachary's memo
+input file
+readme
+contribution
+Deadline: Wed Apr 25
 
 
