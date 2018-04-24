@@ -1,13 +1,17 @@
-var a;
-a:=10;
-var b;
-b:=5;
-var c;
-if(a>b)
-correct{
-c:= 1;
-}
-wrong{
-c:= 0;
-}
-print c;
+M0 := 0
+M1 := 10
+M0 := M1
+M2 := 0
+M3 := 5
+M2 := M3
+M4 := 0
+ifNot M0 > M2 goto L0F
+M5 := 1
+M4 := M5
+goto L0E
+L0F: 
+M6 := 0
+M4 := M6
+goto L0E
+L0E: 
+OUT M4
