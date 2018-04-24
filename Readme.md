@@ -27,7 +27,7 @@ Interpreter: Zachary Wang
 
 ## Install Directions
 
-
+Compiler: download executable file "Compiler.jar" from [here](https://github.com/HongfeiJu/SER502-Spring2018-Team-24/tree/master/src/compiler).
 
 
 
