@@ -131,7 +131,9 @@ print a;
 the output will be 
 
 	
+```
 1
+```
 
 
 ## Zachary's memo
