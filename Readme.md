@@ -118,7 +118,22 @@ count:=count+1;
 }
 print sum;
 ```
-  
+ 
+### Extra Credit ###
+1. We implemented `print` statment in our language to output the variable or value. So you can:
+
+	```
+	var a;
+        a:=1;
+        print a+2;
+        print a;
+	```
+the output will be 
+
+		3
+		1
+
+
 ## Zachary's memo
 input file
 readme
