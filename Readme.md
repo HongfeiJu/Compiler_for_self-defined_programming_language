@@ -21,15 +21,15 @@ Interpreter: Zachary Wang
 
 **Platform**
 
-    MacOS(native)
     Windows(java runtime environment 1.8.0)
+    MacOS(native)
 
 
 ## Install Directions
 
 Compiler: download executable file "Compiler.jar" from [here](https://github.com/HongfeiJu/SER502-Spring2018-Team-24/tree/master/bin).
 
-
+Interpreter: download java class "Interpreter" from [here](https://github.com/HongfeiJu/SER502-Spring2018-Team-24/tree/master/src/runtime).
 
 
 
