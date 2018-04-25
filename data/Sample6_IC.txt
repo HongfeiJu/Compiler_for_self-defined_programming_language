@@ -24,4 +24,3 @@ M11 := M0 + M10
 M0 := M11
 goto L0S
 L0E: 
-OUT M2
