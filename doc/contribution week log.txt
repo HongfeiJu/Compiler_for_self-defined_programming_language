@@ -16,7 +16,8 @@ Week 1: (March 26 - April 1)
 Target: 1. preliminary designing of the programming language
 
 Zachary Wang:
-1. Organize the data structure in the language    
+1. Organize the data structure in the language
+2. Implement components with YACC and FLEX
 
 Hongfei Ju：
 1. Design the primitive type (boolean and int) and operator
@@ -72,6 +73,10 @@ Ruihao Zhou:
 
 Week 4: (April 16 - April 22)
 
+Zachary Wang:
+1. Record my video
+2. Work on the slides
+
 Hongfei Ju:
 1. Prepare the slides.
 2. record the video.
@@ -84,6 +89,10 @@ Ruihao Zhou:
 ------------------------------------------------------
 
 Week 5: (April 13 - April 28)
+
+Zachary Wang:
+1. Correct the test cases
+2. Prepare for the submission
 
 Hongfei Ju:
 1. Preparation for the final submission.
