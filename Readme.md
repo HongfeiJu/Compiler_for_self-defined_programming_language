@@ -92,6 +92,8 @@ WS :  [ \t\r\n]+ -> skip ;
 ## Design Details
 * Paradigm of the Language
 	
+		imperative paradigm
+	
 
 * Parsing Process(Technique)
 
