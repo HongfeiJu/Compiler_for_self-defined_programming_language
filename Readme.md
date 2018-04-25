@@ -21,8 +21,8 @@ Interpreter: Zachary Wang
 
 **Platform**
 
-    Windows(java runtime environment 1.8.0)
-    MacOS(native)
+    Windows(Java runtime environment 1.8.0)
+    MacOS(Java runtime environment 1.8.0)
 
 
 ## Install Directions
