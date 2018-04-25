@@ -150,8 +150,3 @@ the output will be
 ```
 
 
-## Zachary's memo
-readme
-Deadline: Wed Apr 25
-
-
