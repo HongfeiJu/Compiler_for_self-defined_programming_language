@@ -11,8 +11,7 @@ public class Interpreter {
 	}
 
 	public static void main(String[] args) throws IOException {
-//		File file = new File("/Users/david/Desktop/SER502/Sample5_IC.txt");
-		File file = new File("/Users/david/Desktop/SER502/" + args[0]);
+		File file = new File(args[0]);
 		BufferedReader br = new BufferedReader(new FileReader(file));
 		
 		String str;
