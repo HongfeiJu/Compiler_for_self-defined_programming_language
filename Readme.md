@@ -137,7 +137,6 @@ the output will be
 
 
 ## Zachary's memo
-input file
 readme
 Deadline: Wed Apr 25
 
