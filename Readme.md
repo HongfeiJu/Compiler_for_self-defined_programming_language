@@ -42,10 +42,12 @@ For the compiler, run the following command in Command Prompt, :
 
 For the interpreter, please see the following instruction. The following example takes Mac as the development environment.
 
+Step 1:
 On terminal.app, go to Interpreter.java directory, and run the following command to compile Interpreter.java.
 
     javac Interpreter.java
 
+Step 2:
 Run the following command to run the interpreter and test Sample1_IC.txt. If the txt file is in the same directory, just add the file name to the command line.
 
     java Interpreter Sample1_IC.txt
