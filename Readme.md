@@ -122,15 +122,15 @@ print sum;
 ### Extra Credit ###
 1. We implemented `print` statment in our language to output the variable or value. So you can:
 
-	```
-	var a;
-        a:=1;
-        print a+2;
-        print a;
-	```
+```
+var a;
+a:=1;
+print a;
+```
+	
 the output will be 
 
-		3
+	
 		1
 
 
