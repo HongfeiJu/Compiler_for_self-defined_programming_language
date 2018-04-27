@@ -64,36 +64,29 @@ Interpreter: download java class "Interpreter" from [here](https://github.com/Ho
 
 For the compiler, please see the following instruction. 
 
-step 1: go to compiler folder and use following command to compile the source codes:
+step 1: On cmd.exe or terminal.app, go to "compiler" folder and use following command to compile the source codes:
 
 `javac ICGenerator.java`
 
-step 2: use following command to process the L0 file in data folder and generate intermediate codes:
+step 2: Run following command to process the L0 file in "data" folder and generate intermediate codes:
 
-`java ICGenerator ../../data/Sample1.L0`
+`java ICGenerator ../../data/filename.L0`
 
 
-
-Or, for your convenience, the executable jar file can be created. you can run the compiler directly withous compiling by using the following command, :
+PS: for your convenience, the executable jar file can be created. you can put L0 file in the same folder and run the compiler directly withous compiling by using the following command, :
 
 `java -jar Compiler.jar filename.L0`
 
 
-For the interpreter, please see the following instruction. The following example takes Mac as the development environment.
+For the interpreter, please see the following instruction.
 
-Step 1:
-On terminal.app, go to Interpreter.java directory, and run the following command to compile Interpreter.java.
+Step 1: On cmd.exe or terminal.app, go to "runtime" folder and run the following command to compile the source codes.
 
     javac Interpreter.java
 
-Step 2:
-Run the following command to run the interpreter and test Sample1_IC.txt. If the txt file is in the same directory, just add the file name to the command line.
+Step 2: Run the following command to execute intermediate codes in "data" folder.
 
-    java Interpreter Sample1_IC.txt
-
-If the txt file is not in the same directory, we need to add the complete path
-
-    java Interpreter /Users/david/Desktop/SER502/sample1_IC.txt
+    java Interpreter ../../data/filename.txt
 
 
 ## YouTube Video Link
