@@ -48,6 +48,7 @@ Interpreter: download java class "Interpreter" from [here](https://github.com/Ho
 
 ## Build and Run Directions
 
+
 **option 1: use bash script**
 1. run the compiler, source codes of the compiler will be compiled. The built compiler will process the first five samples in the data folder and generate the corresponding intermediate codes.
 
@@ -57,7 +58,9 @@ Interpreter: download java class "Interpreter" from [here](https://github.com/Ho
 
 `~$ ./interpret.sh`
 
+
 **option 2: compile and run the compiler and interpreter by yourself**
+
 
 For the compiler, please see the following instruction. 
 
@@ -74,8 +77,6 @@ step 2: use following command to process the L0 file in data folder and generate
 Or, for your convenience, the executable jar file can be created. you can run the compiler directly withous compiling by using the following command, :
 
 `java -jar Compiler.jar filename.L0`
-
-
 
 
 For the interpreter, please see the following instruction. The following example takes Mac as the development environment.
