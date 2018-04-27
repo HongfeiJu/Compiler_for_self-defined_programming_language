@@ -36,9 +36,11 @@ Interpreter: Zachary Wang
 ## Install Directions
 
 **For intact program**
+
 Download the folder "SER502-Spring2018-Team-24" from [here](https://github.com/HongfeiJu?tab=repositories)
 
 **For components**
+
 Compiler: download executable file "Compiler.jar" from [here](https://github.com/HongfeiJu/SER502-Spring2018-Team-24/tree/master/bin).
 
 Interpreter: download java class "Interpreter" from [here](https://github.com/HongfeiJu/SER502-Spring2018-Team-24/tree/master/src/runtime).
