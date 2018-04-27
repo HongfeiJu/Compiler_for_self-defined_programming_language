@@ -54,6 +54,7 @@ Interpreter: download java class "Interpreter" from [here](https://github.com/Ho
 `~$ ./compile.sh`
 
 2. run the interpreter, source codes of the interpreter will be compiled. The built interpreter will execute the first five intermediate codes files.
+
 `~$ ./interpret.sh`
 
 **option 2: compile and run the compiler and interpreter by yourself**
@@ -154,21 +155,6 @@ count:=count+1;
 }
 print sum;
 ```
- 
-### Extra Credit ###
-1. We implemented `print` statment in our language to output the variable or value. So you can:
 
-```
-var a;
-a:=1;
-print a;
-```
-	
-the output will be 
-
-	
-```
-1
-```
 
 
