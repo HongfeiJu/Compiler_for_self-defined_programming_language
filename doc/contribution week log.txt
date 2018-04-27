@@ -93,6 +93,7 @@ Week 5: (April 13 - April 28)
 Zachary Wang:
 1. Correct the test cases
 2. Prepare for the submission
+3. Write the script file
 
 Hongfei Ju:
 1. Preparation for the final submission.
