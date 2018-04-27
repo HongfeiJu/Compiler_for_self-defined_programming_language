@@ -50,11 +50,12 @@ Interpreter: download java class "Interpreter" from [here](https://github.com/Ho
 
 
 **option 1: use bash script**
-1. run the compiler, source codes of the compiler will be compiled. The built compiler will process the first five samples in the data folder and generate the corresponding intermediate codes.
+
+run the compiler, source codes of the compiler will be compiled. The built compiler will process the first five samples in the data folder and generate the corresponding intermediate codes.
 
 `~$ ./compile.sh`
 
-2. run the interpreter, source codes of the interpreter will be compiled. The built interpreter will execute the first five intermediate codes files.
+run the interpreter, source codes of the interpreter will be compiled. The built interpreter will execute the first five intermediate codes files.
 
 `~$ ./interpret.sh`
 
