@@ -1,0 +1,2 @@
+cd src/runtime
+make
