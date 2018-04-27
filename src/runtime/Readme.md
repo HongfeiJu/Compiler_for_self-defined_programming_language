@@ -2,16 +2,10 @@
 
 ## How to Run Project
 
-For Mac/Linux:
-
-On terminal.app, go to Interpreter.java directory, and run the following command to compile Interpreter.java.
+Step 1: On cmd.exe or terminal.app, go to "runtime" folder and run the following command to compile the source codes.
 
     javac Interpreter.java
 
-Run the following command to run the interpreter and test Sample1_IC.txt. If the txt file is in the same directory, just add the file name to the command line.
+Step 2: Run the following command to execute intermediate codes in "data" folder.
 
-    java Interpreter Sample1_IC.txt
-
-Run the following command to run the interpreter and test Sample1_IC.txt. If the txt file is not in the same directory, we need to add the complete path
-
-    java Interpreter /Users/david/Desktop/SER502/sample1_IC.txt
+    java Interpreter ../../data/filename.txt
