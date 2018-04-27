@@ -21,22 +21,42 @@ Interpreter: Zachary Wang
 
 **Platform**
 
-    Windows(Java runtime environment 1.8.0)
+    Windows(Java runtime environment 1.8.0,cygwin)
     MacOS(Java runtime environment 1.8.0)
 
+## tools
+**GNU Make**
+
+[GNU Make](https://www.gnu.org/software/make/) is a tool which controls the generation of executables and other non-source files of a program from the program's source files.
+
+**Cygwin**
+
+[Cygwin](https://www.cygwin.com/) a large collection of GNU and Open Source tools which provide functionality similar to a Linux distribution on Windows.
 
 ## Install Directions
 
+**For intact program**
+Download the folder "SER502-Spring2018-Team-24" from [here] (https://github.com/HongfeiJu?tab=repositories)
+
+**For components**
 Compiler: download executable file "Compiler.jar" from [here](https://github.com/HongfeiJu/SER502-Spring2018-Team-24/tree/master/bin).
 
 Interpreter: download java class "Interpreter" from [here](https://github.com/HongfeiJu/SER502-Spring2018-Team-24/tree/master/src/runtime).
 
 
-
 ## Build and Run Directions
 
+**option 1: use bash script**
+1. run the compiler, source codes of the compiler will be compiled. The built compiler will process the first five samples in the data folder and generate the corresponding intermediate codes.
 
-For the compiler, run the following command in Command Prompt, :
+`~$ ./compile.sh`
+
+2. run the interpreter, source codes of the interpreter will be compiled. The built interpreter will execute the first five intermediate codes files.
+`~$ ./interpret.sh`
+
+**option 2: compile and run the compiler and interpreter by yourself**
+
+For the compiler, in order to compile a L0 file and generate the corresponding intermediate code, you can run the following command in Command Prompt, :
 
 `java -jar Compiler.jar filename.L0`
 
