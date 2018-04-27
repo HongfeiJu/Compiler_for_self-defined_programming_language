@@ -41,7 +41,7 @@ Download the folder "SER502-Spring2018-Team-24" from [here](https://github.com/H
 
 **For components**
 
-Compiler: download executable file "Compiler.jar" from [here](https://github.com/HongfeiJu/SER502-Spring2018-Team-24/tree/master/bin).
+Compiler: down load soucre codes from [here](https://github.com/HongfeiJu/SER502-Spring2018-Team-24/tree/master/src/compiler) or download executable file "Compiler.jar" from [here](https://github.com/HongfeiJu/SER502-Spring2018-Team-24/tree/master/bin).
 
 Interpreter: download java class "Interpreter" from [here](https://github.com/HongfeiJu/SER502-Spring2018-Team-24/tree/master/src/runtime).
 
@@ -59,9 +59,24 @@ Interpreter: download java class "Interpreter" from [here](https://github.com/Ho
 
 **option 2: compile and run the compiler and interpreter by yourself**
 
-For the compiler, in order to compile a L0 file and generate the corresponding intermediate code, you can run the following command in Command Prompt, :
+For the compiler, please see the following instruction. 
+
+step 1: go to compiler folder and use following command to compile the source codes:
+
+`javac ICGenerator.java`
+
+step 2: use following command to process the L0 file in data folder and generate intermediate codes:
+
+`java ICGenerator ../../data/Sample1.L0`
+
+
+
+Or, for your convenience, the executable jar file can be created. you can run the compiler directly withous compiling by using the following command, :
 
 `java -jar Compiler.jar filename.L0`
+
+
+
 
 For the interpreter, please see the following instruction. The following example takes Mac as the development environment.
 
