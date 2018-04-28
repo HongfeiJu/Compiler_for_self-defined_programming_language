@@ -82,7 +82,7 @@ Hongfei Ju:
 2. record the video.
 
 Ruihao Zhou:
-1. Edit ReadME
+1. Edit ReadME and compiler file
 2. Record the video
 3. Write some sample program to test
 
@@ -101,4 +101,4 @@ Hongfei Ju:
 Ruihao Zhou:
 1. Preparation for the final submission.
 2. Made Youtube Vedio and edit document.
-3. Try Extra credit.
+3. Try Extra credit and test cases.
